@@ -1,33 +1,30 @@
-import React, { useState } from "react";
+import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { AiOutlineMenu } from "react-icons/ai";
 
 const HamburgerNav = () => {
-  const [open, setOpen] = useState(false);
-
-  const handleClick = () => {
-    setOpen(!open);
-  };
-
   return (
     <Wrapper>
-      {open && (
-        <>
-          <MenuLink to='/shop'>Shop</MenuLink>
-          <MenuLink to='/about'>About</MenuLink>
-          <MenuLink to='/signin'>Log in</MenuLink>
-        </>
-      )}
+      <>
+        <MenuLink to='/shop'>Shop</MenuLink>
+        <MenuLink to='/about'>About</MenuLink>
+        <MenuLink to='/signin'>Log in</MenuLink>
+      </>
     </Wrapper>
   );
 };
 
 export default HamburgerNav;
 
-const Wrapper = styled.div``;
+const Wrapper = styled.nav`
+  position: absolute;
+  left: 0.714em;
+  top: 5em;
+  height: 100vh;
+  width: 30%;
+`;
 
 const MenuLink = styled(Link)`
-  margin-right: 5px;
+  margin-right: 0.357em;
   text-decoration: none;
 `;

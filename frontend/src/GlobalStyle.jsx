@@ -2,11 +2,16 @@ import { createGlobalStyle } from "styled-components";
 
 const GlobalStyle = createGlobalStyle`
 
-* {
+  * {
     box-sizing: border-box;
-    color: #5a6b74;
     font-family: "Quicksand", sans-serif;
-}
+    margin: 0;
+    padding: 0;
+  }
+
+  html {
+    font-size: 14px;
+  }
   
   body {
     margin: 0;
@@ -15,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
       sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    font-size: 0.875rem;
   }
   
   code {
@@ -24,11 +28,14 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    background-color: #f7f5f0;
+    background-color: #FEF9F5;
+    color: #373737;
   }
 
   h1 {
+    font-family: "Engagement", cursive;
     font-size: 1.75rem;
+    color: #AD5729;
   }
 
   h2 {

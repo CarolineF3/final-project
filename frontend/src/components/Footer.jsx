@@ -31,10 +31,8 @@ const Footer = () => {
           onChange={(e) => setEmail(e.target.value)}
         ></Email>
         <Button>SUBSCRIBE</Button>
-        <CopyrightWrapper>
-          <Copyright>&copy; THE COMPANY</Copyright>
-        </CopyrightWrapper>
       </NewsLetterWrapper>
+      <Copyright>&copy; THE COMPANY</Copyright>
     </Wrapper>
   );
 };
@@ -45,28 +43,52 @@ const Wrapper = styled.footer`
   display: flex;
   flex-direction: column;
   width: 100%;
+  height: auto;
   padding: 1.714em;
-  background-color: #aab4ae;
+  color: #ad5729;
+  background-color: #efd0cb;
+
+  @media (min-width: 998px) {
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    height: auto;
+    padding-top: 3.929em;
+  }
 `;
 
-const ContactWrapper = styled.div``;
+const ContactWrapper = styled.div`
+  margin-bottom: 1.429em;
+
+  @media (min-width: 998px) {
+    width: 35%;
+  }
+`;
 
 const Contact = styled.p``;
 
 const NewsLetterWrapper = styled.form`
   display: flex;
   flex-direction: column;
+
+  @media (min-width: 998px) {
+    width: 35%;
+  }
 `;
 
-const Header = styled.h3``;
+const Header = styled.h3`
+  margin-bottom: 1.143em;
+`;
 
-const Instructions = styled.p``;
+const Instructions = styled.p`
+  margin-bottom: 0.857em;
+`;
 
 const Email = styled.input`
   width: 22em;
   margin-bottom: 1em;
   padding: 0.571em;
-  border: 1px solid grey;
+  border: 1px solid #dad9d9;
   border-radius: 0;
 
   &:focus {
@@ -81,20 +103,18 @@ const Button = styled.button`
   padding: 0.714em 0;
   border-radius: 0;
   border: none;
-  background-color: #6e7976;
+  background-color: #f3ac9e;
   color: #fff;
   cursor: pointer;
 
   &:hover {
-    background-color: #818a87;
+    background-color: #facac0;
     transition-delay: 0.1s;
   }
 `;
 
-const CopyrightWrapper = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-`;
+const Copyright = styled.p`
+  text-align: center;
 
-const Copyright = styled.p``;
+  @media (min-width: 998px) {
+`;

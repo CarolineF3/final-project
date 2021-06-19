@@ -20,7 +20,7 @@ const Nav = () => {
           </Link>
         </NavItem>
         <NavItem>
-          <Link>
+          <Link to='/cart'>
             <CartIcon />
           </Link>
         </NavItem>
@@ -35,8 +35,10 @@ const Wrapper = styled.nav`
   display: flex;
   flex-direction: row;
 
-  @media (min-width: 768px) {
-    justify-content: ;
+  @media (min-width: 998px) {
+    position: absolute;
+    top: 20px;
+    right: 4%;
   }
 `;
 
@@ -44,6 +46,7 @@ const NavList = styled.ul`
   display: flex;
   flex-direction: row;
   padding: 0;
+  margin: 0;
 `;
 
 const NavItem = styled.li`
@@ -55,12 +58,15 @@ const NavItem = styled.li`
 
 const WitchIcon = styled(GiWitchFlight)`
   vertical-align: bottom;
+  color: #373737;
 `;
 
 const SearchIcon = styled(BsSearch)`
   vertical-align: bottom;
+  color: #373737;
 `;
 
 const CartIcon = styled(BsBag)`
   vertical-align: bottom;
+  color: #373737;
 `;

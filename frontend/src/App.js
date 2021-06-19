@@ -2,7 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import About from "./pages/About";
-import Cart from "./pages/Cart";
+/*import Cart from "./pages/Cart";*/
+import Checkout from "./pages/Checkout";
+import Details from "./pages/Details";
 import Landing from "./pages/Landing";
 import Login from "./pages/Login";
 import Shop from "./pages/Shop";
@@ -23,11 +25,15 @@ const App = () => {
           <Route exact path='/about'>
             <About />
           </Route>
-          <Route exact path='/cart'>
-            <Cart />
+
+          <Route exact path='/checkout'>
+            <Checkout />
           </Route>
           <Route exact path='/login'>
             <Login />
+            <Route path='/products/:id'>
+              <Details />
+            </Route>
           </Route>
           <Route exact path='/shop'>
             <Shop />

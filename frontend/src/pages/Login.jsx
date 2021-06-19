@@ -1,13 +1,53 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch, batch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
+
+import user from "../reducers/user";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const accessToken = useSelector((store) => store.user.accessToken);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (accessToken) {
+      history.push("/");
+    }
+  }, [accessToken, history]);
+
   const onFormSubmit = (e) => {
     e.preventDefault();
+
+    const API_LOGIN = "http://192.168.10.146:8080/signin";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        email: email,
+        password: password,
+      }),
+    };
+
+    fetch(API_LOGIN, options)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          batch(() => {
+            dispatch(user.actions.setAccessToken(data.accessToken));
+            dispatch(user.actions.setErrors(null));
+          });
+        } else {
+          dispatch(user.actions.setErrors(data));
+        }
+      });
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -24,14 +64,11 @@ const Login = () => {
         placeholder='Password'
         onChange={(e) => setPassword(e.target.value)}
       ></Password>
-      <Button type='submit' onClick={onFormSubmit}>
+      <Button type='submit' aria-label='Sign in'>
         SIGN IN
       </Button>
       <CreateAccount>
-        Do not have an account?{" "}
-        <Link to='/signup'>
-          <Create>Create account</Create>
-        </Link>
+        Do not have an account? <SignUp to='/signup'>Create account</SignUp>
       </CreateAccount>
     </Wrapper>
   );
@@ -43,15 +80,18 @@ const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  align-items: center;
   width: 100%;
-  height: 48vh;
-  padding: 24px;
-  background-color: #f7f5f0;
+  height: 46vh;
+  padding: 0.857em;
+
+  @media (min-width: 998px) {
+    height: 64vh;
+  }
 `;
 
 const Header = styled.h2`
-  font-weight: normal;
+  margin-top: 1.429em;
+  margin-bottom: 1.429em;
 `;
 
 const Instructions = styled.p`
@@ -62,7 +102,7 @@ const Email = styled.input`
   width: 24em;
   margin-bottom: 14px;
   padding: 8px;
-  border: 1px solid #aaa9a9;
+  border: 1px solid #dad9d9;
   border-radius: 0;
 
   &:focus {
@@ -73,9 +113,9 @@ const Email = styled.input`
 
 const Password = styled.input`
   width: 24em;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   padding: 8px;
-  border: 1px solid #aaa9a9;
+  border: 1px solid #dad9d9;
   border-radius: 0;
 
   &:focus {
@@ -89,21 +129,30 @@ const Button = styled.button`
   padding: 10px 0;
   border-radius: 0;
   border: none;
-  background-color: #6e7976;
+  background-color: #f3ac9e;
   color: #fff;
   cursor: pointer;
 
   &:hover {
-    background-color: #818a87;
+    background-color: #facac0;
     transition-delay: 0.1s;
   }
 `;
 
 const CreateAccount = styled.p`
   margin-top: 18px;
+  color: #a7a7a7;
 `;
 
-const Create = styled(Link)`
-  font-weight: bold;
+const SignUp = styled(Link)`
   text-decoration: none;
+
+  &:hover {
+    color: #373737;
+    transition-delay: 0.1s;
+  }
+
+  &:visited {
+    color: #a7a7a7;
+  }
 `;

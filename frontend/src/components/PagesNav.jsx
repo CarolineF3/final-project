@@ -17,9 +17,12 @@ export default PagesNav;
 const Nav = styled.nav`
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+  width: 20%;
 `;
 
 const Navlink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
+  color: #373737;
 `;

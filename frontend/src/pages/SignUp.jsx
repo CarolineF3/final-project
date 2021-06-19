@@ -1,15 +1,60 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from "react";
+import { useSelector, useDispatch, batch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 import styled from "styled-components";
 
+import user from "../reducers/user";
+
 const SignUp = () => {
-  const [firstname, setFirstName] = useState("");
-  const [lastname, setLastName] = useState("");
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const accessToken = useSelector((store) => store.user.accessToken);
+  const dispatch = useDispatch();
+  const history = useHistory();
+
+  useEffect(() => {
+    if (accessToken) {
+      history.push("/");
+    }
+  }, [accessToken, history]);
+
   const onFormSubmit = (e) => {
     e.preventDefault();
+
+    const API_REGISTER = "http://192.168.10.146:8080/signup";
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        firstname: firstName,
+        lastname: lastName,
+        email: email,
+        password: password,
+      }),
+    };
+
+    fetch(API_REGISTER, options)
+      .then((res) => res.json())
+      .then((data) => {
+        if (data.success) {
+          batch(() => {
+            dispatch(user.actions.setAccessToken(data.accessToken));
+            dispatch(user.actions.setErrors(null));
+          });
+        } else {
+          dispatch(user.actions.setErrors(data));
+        }
+      });
+
+    setFirstName("");
+    setLastName("");
+    setEmail("");
+    setPassword("");
   };
 
   return (
@@ -20,34 +65,33 @@ const SignUp = () => {
         type='text'
         aria-label='First name'
         placeholder='First name'
+        value={firstName}
         onChange={(e) => setFirstName(e.target.value)}
       ></FirstName>
       <LastName
         type='text'
         aria-label='Last name'
-        placeholder='First name'
+        placeholder='Last name'
+        value={lastName}
         onChange={(e) => setLastName(e.target.value)}
       ></LastName>
       <Email
         type='email'
         aria-label='Email'
         placeholder='Email'
+        value={email}
         onChange={(e) => setEmail(e.target.value)}
       ></Email>
       <Password
         type='password'
         aria-label='Password'
         placeholder='Password'
+        value={password}
         onChange={(e) => setPassword(e.target.value)}
       ></Password>
-      <Button type='submit' onClick={onFormSubmit}>
-        Create account
-      </Button>
+      <Button type='submit'>Create account</Button>
       <CreateAccount>
-        Already a member?{" "}
-        <Link to='/login'>
-          <Login>Login</Login>
-        </Link>
+        Already a member? <Login to='/login'>Login</Login>
       </CreateAccount>
     </Wrapper>
   );
@@ -58,21 +102,22 @@ export default SignUp;
 const Wrapper = styled.form`
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   width: 100%;
-  height: 54vh;
-  padding: 24px;
-  background-color: #f7f5f0;
+  height: 56vh;
+  padding: 0.857em;
+
+  @media (min-width: 998px) {
+    height: 74vh;
+  }
 `;
 
 const Header = styled.h2`
-  font-size: 22px;
-  font-weight: normal;
+  margin-top: 1.429em;
+  margin-bottom: 1.429em;
 `;
 
 const Instructions = styled.p`
-  font-size: 12px;
   margin-bottom: 16px;
 `;
 
@@ -80,9 +125,8 @@ const FirstName = styled.input`
   width: 24em;
   margin-bottom: 14px;
   padding: 8px;
-  border: 1px solid #aaa9a9;
+  border: 1px solid #dad9d9;
   border-radius: 0;
-  font-size: 12px;
 
   &:focus {
     border: 1px solid #000;
@@ -94,9 +138,8 @@ const LastName = styled.input`
   width: 24em;
   margin-bottom: 14px;
   padding: 8px;
-  border: 1px solid #aaa9a9;
+  border: 1px solid #dad9d9;
   border-radius: 0;
-  font-size: 12px;
 
   &:focus {
     border: 1px solid #000;
@@ -108,9 +151,8 @@ const Email = styled.input`
   width: 24em;
   margin-bottom: 14px;
   padding: 8px;
-  border: 1px solid #aaa9a9;
+  border: 1px solid #dad9d9;
   border-radius: 0;
-  font-size: 12px;
 
   &:focus {
     border: 1px solid #000;
@@ -120,11 +162,10 @@ const Email = styled.input`
 
 const Password = styled.input`
   width: 24em;
-  margin-bottom: 14px;
+  margin-bottom: 16px;
   padding: 8px;
-  border: 1px solid #aaa9a9;
+  border: 1px solid #dad9d9;
   border-radius: 0;
-  font-size: 12px;
 
   &:focus {
     border: 1px solid #000;
@@ -137,23 +178,30 @@ const Button = styled.button`
   padding: 10px 0;
   border-radius: 0;
   border: none;
-  background-color: #6e7976;
+  background-color: #f3ac9e;
   color: #fff;
-  font-size: 12px;
   cursor: pointer;
 
   &:hover {
-    background-color: #818a87;
+    background-color: #facac0;
     transition-delay: 0.1s;
   }
 `;
 
 const CreateAccount = styled.p`
-  font-size: 12px;
   margin-top: 18px;
+  color: #a7a7a7;
 `;
 
 const Login = styled(Link)`
-  font-weight: bold;
   text-decoration: none;
+
+  &:hover {
+    color: #373737;
+    transition-delay: 0.1s;
+  }
+
+  &:visited {
+    color: #a7a7a7;
+  }
 `;
