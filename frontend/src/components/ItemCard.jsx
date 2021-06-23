@@ -9,7 +9,7 @@ const ItemCard = ({ image, name, price, _id }) => {
         <Img src={image} alt='' />
         <Name>{name}</Name>
       </ImgLink>
-      <Price>{price} KR</Price>
+      <Price>{price} SEK</Price>
     </Card>
   );
 };
@@ -43,7 +43,7 @@ const Img = styled.img`
   width: 90%;
 
   &:hover {
-    filter: brightness(95%);
+    filter: brightness(90%);
     transition: 0.2s ease-in-out;
   }
 `;

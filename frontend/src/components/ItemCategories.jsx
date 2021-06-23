@@ -1,34 +1,34 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 
+import Category from "./Category";
+
 const ItemCategories = () => {
-  const categoryLinks = [
-    { name: "BOOKS", category: "Books" },
-    { name: "CRYSTALS", category: "Crystals" },
-    { name: "INCENSCE", category: "Incensce" },
-    { name: "JEWELLRY", category: "Jewellry" },
-    { name: "TAROT", category: "Tarot" },
+  const [products, setProducts] = useState([]);
+  const [sortedProducts, setSortedProducts] = useState([]);
+
+  const categoryButtons = [
+    "Books",
+    "Crystals",
+    "Incense",
+    "Jewellery",
+    "Tarot",
   ];
+
+  /*useEffect(() => {
+    getPageByCategory("product").then((data) => {
+      setProducts(data);
+      setSortedProducts(data);
+    });
+  }, []);*/
 
   return (
     <Wrapper>
       <Header>CATEGORIES</Header>
       <ListWrapper>
-        <Category>
-          <Span>⋆</Span>BOOKS
-        </Category>
-        <Category>
-          <Span>⋆</Span>CRYSTALS
-        </Category>
-        <Category>
-          <Span>⋆</Span>INCENSCE
-        </Category>
-        <Category>
-          <Span>⋆</Span>JEWELLRY
-        </Category>
-        <Category>
-          <Span>⋆</Span>TAROT
-        </Category>
+        {categoryButtons.map((categoryButton) => (
+          <Category key={categoryButton} categoryName={categoryButton} />
+        ))}
       </ListWrapper>
     </Wrapper>
   );
@@ -51,14 +51,4 @@ const Header = styled.h3`
 const ListWrapper = styled.ul`
   display: flex;
   flex-direction: column;
-`;
-
-const Category = styled.li`
-  list-style-type: none;
-  margin: 0.714em;
-  font-size: 1rem;
-`;
-
-const Span = styled.span`
-  margin-right: 0.714em;
 `;

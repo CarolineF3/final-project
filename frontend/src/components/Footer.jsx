@@ -32,7 +32,7 @@ const Footer = () => {
         ></Email>
         <Button>SUBSCRIBE</Button>
       </NewsLetterWrapper>
-      <Copyright>&copy; THE COMPANY</Copyright>
+      <Copyright>&copy; STAY WITCHY</Copyright>
     </Wrapper>
   );
 };
@@ -117,4 +117,6 @@ const Copyright = styled.p`
   text-align: center;
 
   @media (min-width: 998px) {
+    display: none;
+  }
 `;

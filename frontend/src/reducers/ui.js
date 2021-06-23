@@ -1,16 +1,32 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-export const ui = createSlice({
+const ui = createSlice({
   name: "ui",
   initialState: {
     openCart: false,
+    openHamburger: false,
+    filter: "",
   },
+
   reducers: {
-    openCart: (state, action) => {
-      state.openCart = true;
+    // openCart: (state, action) => {
+    //   state.openCart = true;
+    // },
+    // closeCart: (state, action) => {
+    //   state.openCart = false;
+    // },
+
+    toggleCart: (state, action) => {
+      state.openCart = !state.openCart;
     },
-    closeCart: (state, action) => {
-      state.openCart = false;
+
+    toggleHamburger: (state, action) => {
+      state.openHamburger = !state.openHamburger;
+    },
+    setFilter: (state, action) => {
+      state.filter = action.payload;
     },
   },
 });
+
+export default ui;

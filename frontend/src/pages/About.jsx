@@ -5,7 +5,7 @@ const About = () => {
   return (
     <Wrapper>
       <ProfileImg
-        src={require("../assets/profile.jpg")}
+        src={require("../assets/profileimg1.jpg")}
         alt='Caroline'
       ></ProfileImg>
       <Presentation>

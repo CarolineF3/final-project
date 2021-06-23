@@ -1,11 +1,15 @@
 import React from "react";
 import styled from "styled-components";
+import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { GiWitchFlight } from "react-icons/gi";
 import { BsSearch } from "react-icons/bs";
 import { BsBag } from "react-icons/bs";
+import ui from "../reducers/ui";
 
 const Nav = () => {
+  const dispatch = useDispatch();
+
   return (
     <Wrapper>
       <NavList>
@@ -20,9 +24,9 @@ const Nav = () => {
           </Link>
         </NavItem>
         <NavItem>
-          <Link to='/cart'>
+          <CartButton onClick={() => dispatch(ui.actions.toggleCart())}>
             <CartIcon />
-          </Link>
+          </CartButton>
         </NavItem>
       </NavList>
     </Wrapper>
@@ -54,6 +58,14 @@ const NavItem = styled.li`
   list-style-type: none;
   margin-right: 12px;
   font-size: 1.5rem;
+`;
+
+const CartButton = styled.button`
+  background: transparent;
+  border: none;
+  font-size: 1.5rem;
+  color: #373737;
+  cursor: pointer;
 `;
 
 const WitchIcon = styled(GiWitchFlight)`

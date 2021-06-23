@@ -7,10 +7,12 @@ import App from "./App";
 
 import user from "./reducers/user";
 import cart from "./reducers/cart";
+import ui from "./reducers/ui";
 
 const reducer = combineReducers({
   user: user.reducer,
   cart: cart.reducer,
+  ui: ui.reducer,
 });
 const store = configureStore({ reducer });
 

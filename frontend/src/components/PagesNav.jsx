@@ -25,4 +25,8 @@ const Navlink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
   color: #373737;
+
+  &:hover {
+    text-decoration: underline;
+  }
 `;

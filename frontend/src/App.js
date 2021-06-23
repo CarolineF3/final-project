@@ -10,6 +10,7 @@ import Login from "./pages/Login";
 import Shop from "./pages/Shop";
 import SignUp from "./pages/SignUp";
 
+import Cart from "./components/Cart";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 
@@ -25,15 +26,14 @@ const App = () => {
           <Route exact path='/about'>
             <About />
           </Route>
-
           <Route exact path='/checkout'>
             <Checkout />
           </Route>
           <Route exact path='/login'>
             <Login />
-            <Route path='/products/:id'>
-              <Details />
-            </Route>
+          </Route>
+          <Route exact path='/products/:id'>
+            <Details />
           </Route>
           <Route exact path='/shop'>
             <Shop />

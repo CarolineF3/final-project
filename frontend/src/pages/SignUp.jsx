@@ -204,4 +204,8 @@ const Login = styled(Link)`
   &:visited {
     color: #a7a7a7;
   }
+
+  &:visited:hover {
+    color: #373737;
+  }
 `;

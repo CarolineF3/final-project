@@ -1,12 +1,23 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 
 import ItemCategories from "../components/ItemCategories";
 import ItemCard from "../components/ItemCard";
 
+import ui from "../reducers/ui";
+
 const Shop = () => {
   const [itemList, setItemList] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
+  // const [test, setTest] = useState("http://localhost:8080/items");
+
+  // const filters = useSelector((store) => store.ui.filter);
+  // if (filters) {
+  //   setTest("http://localhost:8080/items" + `?category=${filters}`);
+  // }
+  // console.log(test);
+
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
   };
@@ -25,15 +36,14 @@ const Shop = () => {
   const fetchItems = () => {
     fetch("http://localhost:8080/items")
       .then((res) => res.json())
-      .then((data) => setItemList(data.items))
+      .then((data) => setItemList(data))
       .catch((err) => alert(`Error while loading items:${err}`));
   };
-  console.log(itemList);
 
   return (
     <>
       <Wrapper>
-        <Header>SHOP</Header>
+        <Header>SHOP{}</Header>
         <CategoriesWrapper>
           {width <= 998 && (
             <Button type='button' aria-label='Categories' onClick=''>
@@ -86,7 +96,7 @@ const CategoriesWrapper = styled.div`
   border: 1px solid #dad9d9;
   border-right: none;
   border-left: none;
-  padding: 1.071em;
+  padding: 0 1.071em;
 
   @media (min-width: 998px) {
     width: 15%;

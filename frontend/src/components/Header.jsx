@@ -20,7 +20,7 @@ const Header = () => {
     };
   }, []);
 
-  const handleClick = () => {
+  const handlehamburger = () => {
     setOpen(!open);
   };
 
@@ -28,7 +28,7 @@ const Header = () => {
     <Wrapper>
       {width <= 998 && (
         <>
-          <Button type='button' aria-label='Menu' onClick={handleClick}>
+          <Button type='button' aria-label='Menu' onClick={handlehamburger}>
             <HamburgerIcon />
           </Button>
           {open && <HamburgerNav />}
