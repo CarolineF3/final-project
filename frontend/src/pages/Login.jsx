@@ -56,11 +56,13 @@ const Login = () => {
       <Instructions>Enter your email address and password:</Instructions>
       <Email
         type='email'
+        aria-label='Email'
         placeholder='Email'
         onChange={(e) => setEmail(e.target.value)}
       ></Email>
       <Password
         type='password'
+        aria-label='Password'
         placeholder='Password'
         onChange={(e) => setPassword(e.target.value)}
       ></Password>

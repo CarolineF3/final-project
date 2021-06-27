@@ -15,16 +15,9 @@ const ItemCategories = () => {
     "Tarot",
   ];
 
-  /*useEffect(() => {
-    getPageByCategory("product").then((data) => {
-      setProducts(data);
-      setSortedProducts(data);
-    });
-  }, []);*/
-
   return (
     <Wrapper>
-      <Header>CATEGORIES</Header>
+      <Title>CATEGORIES</Title>
       <ListWrapper>
         {categoryButtons.map((categoryButton) => (
           <Category key={categoryButton} categoryName={categoryButton} />
@@ -42,7 +35,7 @@ const Wrapper = styled.aside`
   color: #ad5729;
 `;
 
-const Header = styled.h3`
+const Title = styled.h3`
   margin-bottom: 1em;
   margin-left: 0.714em;
   font-size: 1rem;

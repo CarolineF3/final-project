@@ -10,13 +10,6 @@ import ui from "../reducers/ui";
 const Shop = () => {
   const [itemList, setItemList] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
-  // const [test, setTest] = useState("http://localhost:8080/items");
-
-  // const filters = useSelector((store) => store.ui.filter);
-  // if (filters) {
-  //   setTest("http://localhost:8080/items" + `?category=${filters}`);
-  // }
-  // console.log(test);
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -43,7 +36,7 @@ const Shop = () => {
   return (
     <>
       <Wrapper>
-        <Header>SHOP{}</Header>
+        <Header>SHOP</Header>
         <CategoriesWrapper>
           {width <= 998 && (
             <Button type='button' aria-label='Categories' onClick=''>

@@ -244,7 +244,6 @@ const newItem = new Item({
 
 newItem.save();
 
-// RESET_DB=true npm run dev
 if (process.env.RESET_DB) {
   const seedDB = async () => {
     await Item.deleteMany();

@@ -8,7 +8,6 @@ const Category = ({ categoryName }) => {
   const dispatch = useDispatch();
   const sortOnClick = (category) => {
     dispatch(ui.actions.setFilter(categoryName));
-    console.log("Nu klickar du på: ", categoryName);
   };
   return (
     <CategoryLink>
