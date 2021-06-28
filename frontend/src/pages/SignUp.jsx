@@ -89,9 +89,9 @@ const SignUp = () => {
         value={password}
         onChange={(e) => setPassword(e.target.value)}
       ></Password>
-      <Button type='submit'>Create account</Button>
+      <Button type='submit'>CREATE ACCOUNT</Button>
       <CreateAccount>
-        Already a member? <Login to='/login'>Login</Login>
+        Already a member? <Login to='/login'>Sign in</Login>
       </CreateAccount>
     </Wrapper>
   );
@@ -178,12 +178,12 @@ const Button = styled.button`
   padding: 10px 0;
   border-radius: 0;
   border: none;
-  background-color: #f3ac9e;
   color: #fff;
+  background-color: #e8bcc8;
   cursor: pointer;
 
   &:hover {
-    background-color: #facac0;
+    filter: brightness(110%);
     transition-delay: 0.1s;
   }
 `;

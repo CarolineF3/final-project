@@ -5,9 +5,9 @@ import { Link } from "react-router-dom";
 const PagesNav = () => {
   return (
     <Nav>
-      <Navlink to='/shop'>Shop</Navlink>
-      <Navlink to='/about'>About</Navlink>
-      <Navlink to='/login'>Log in</Navlink>
+      <Navlink to='/shop'>SHOP</Navlink>
+      <Navlink to='/about'>ABOUT</Navlink>
+      <Navlink to='/login'>LOG IN</Navlink>
     </Nav>
   );
 };
@@ -24,6 +24,7 @@ const Nav = styled.nav`
 const Navlink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
+  letter-spacing: 0.08em;
   color: #373737;
 
   &:hover {

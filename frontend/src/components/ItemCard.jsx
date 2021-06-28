@@ -52,6 +52,7 @@ const Name = styled.p`
   margin: 10px 0 5px 0;
   color: #373737;
   font-size: 1rem;
+  letter-spacing: 0.08em;
 
   &:hover {
     color: #a7a7a7;
@@ -62,5 +63,6 @@ const Name = styled.p`
 const Price = styled.p`
   margin: 0;
   font-size: 0.625;
+  letter-spacing: 0.08em;
   color: #a7a7a7;
 `;

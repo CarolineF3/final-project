@@ -6,7 +6,7 @@ const user = createSlice({
     username: null,
     accessToken: null,
     errors: null,
-    cart: null,
+    cart: [],
   },
   reducers: {
     setUsername: (store, action) => {

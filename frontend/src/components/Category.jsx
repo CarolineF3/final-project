@@ -31,7 +31,7 @@ const Button = styled.button`
   background: transparent;
   border: none;
   cursor: pointer;
-  color: #ad5729;
+  color: #ba8b9b;
   text-transform: uppercase;
 
   &:hover {

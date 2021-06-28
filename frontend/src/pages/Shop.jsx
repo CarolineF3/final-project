@@ -8,8 +8,10 @@ import ItemCard from "../components/ItemCard";
 import ui from "../reducers/ui";
 
 const Shop = () => {
+  const filter = useSelector((store) => store.ui.filter);
   const [itemList, setItemList] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
+  let API;
 
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
@@ -24,10 +26,13 @@ const Shop = () => {
 
   useEffect(() => {
     fetchItems();
-  }, []);
+  }, [filter]);
 
   const fetchItems = () => {
-    fetch("http://localhost:8080/items")
+    filter
+      ? (API = `http://localhost:8080/items?category=${filter}`)
+      : (API = "http://localhost:8080/items");
+    fetch(API)
       .then((res) => res.json())
       .then((data) => setItemList(data))
       .catch((err) => alert(`Error while loading items:${err}`));
@@ -89,7 +94,7 @@ const CategoriesWrapper = styled.div`
   border: 1px solid #dad9d9;
   border-right: none;
   border-left: none;
-  padding: 0 1.071em;
+  padding: 1.071em;
 
   @media (min-width: 998px) {
     width: 15%;

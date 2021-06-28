@@ -2,14 +2,18 @@ import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
+import { useDispatch } from "react-redux";
 
 import Nav from "../components/Nav";
 import PagesNav from "../components/PagesNav";
 import HamburgerNav from "../components/HamburgerNav";
 
+import ui from "../reducers/ui";
+
 const Header = () => {
   const [open, setOpen] = useState(false);
   const [width, setWidth] = useState(window.innerWidth);
+  const dispatch = useDispatch();
   const handleWindowSizeChange = () => {
     setWidth(window.innerWidth);
   };
@@ -21,7 +25,7 @@ const Header = () => {
   }, []);
 
   const handlehamburger = () => {
-    setOpen(!open);
+    dispatch(ui.actions.toggleHamburger());
   };
 
   return (
@@ -48,11 +52,11 @@ export default Header;
 const Wrapper = styled.header`
   display: flex;
   flex-direction: row;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   width: 100%;
   height: 70px;
-  padding: 0;
+  padding: 0 32px;
   background-color: #fff;
   border-bottom: 1px solid #dad9d9;
 
@@ -60,6 +64,7 @@ const Wrapper = styled.header`
     flex-direction: column;
     justify-content: flex-start;
     height: 110px;
+    padding: 0;
   }
 `;
 
@@ -77,8 +82,13 @@ const CompanyName = styled.h1`
     font-size: 2rem;
   }
 `;
+const Img = styled.img`
+  margin-right: 20px;
+  margin-left: 5px;
+`;
 
 const Button = styled.button`
+  margin-right: 54px;
   background-color: transparent;
   border: none;
   font-size: 24px;

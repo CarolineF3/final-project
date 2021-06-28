@@ -131,12 +131,12 @@ const Button = styled.button`
   padding: 10px 0;
   border-radius: 0;
   border: none;
-  background-color: #f3ac9e;
+  background-color: #e8bcc8;
   color: #fff;
   cursor: pointer;
 
   &:hover {
-    background-color: #facac0;
+    filter: brightness(110%);
     transition-delay: 0.1s;
   }
 `;

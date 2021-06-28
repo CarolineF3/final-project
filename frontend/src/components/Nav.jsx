@@ -42,7 +42,7 @@ const Wrapper = styled.nav`
   @media (min-width: 998px) {
     position: absolute;
     top: 20px;
-    right: 4%;
+    right: 7%;
   }
 `;
 
@@ -58,6 +58,10 @@ const NavItem = styled.li`
   list-style-type: none;
   margin-right: 12px;
   font-size: 1.5rem;
+
+  &:last-child {
+    margin: 0;
+  }
 `;
 
 const CartButton = styled.button`

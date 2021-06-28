@@ -15,6 +15,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK1",
       price: 10,
+      isfeatured: true,
     },
     {
       category: "books",
@@ -24,6 +25,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK2",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "books",
@@ -33,6 +35,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK3",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "books",
@@ -42,6 +45,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK4",
       price: 10,
+      isfeatured: true,
     },
     {
       category: "crystal",
@@ -51,6 +55,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL1",
       price: 10,
+      isfeatured: true,
     },
     {
       category: "crystal",
@@ -60,6 +65,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL2",
       price: 10,
+      isfeatured: true,
     },
     {
       category: "crystal",
@@ -69,6 +75,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL3",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "crystal",
@@ -78,6 +85,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL4",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "incense",
@@ -87,6 +95,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE1",
       price: 10,
+      isfeatured: true,
     },
     {
       category: "incense",
@@ -96,6 +105,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE2",
       price: 10,
+      isfeatured: true,
     },
     {
       category: "incense",
@@ -105,6 +115,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE3",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "incense",
@@ -114,6 +125,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE4",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "jewellery",
@@ -123,6 +135,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY1",
       price: 10,
+      isfeatured: true,
     },
     {
       category: "jewellery",
@@ -132,6 +145,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY2",
       price: 10,
+      isfeatured: true,
     },
     {
       category: "jewellery",
@@ -141,6 +155,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY3",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "jewellery",
@@ -150,6 +165,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY4",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "tarot",
@@ -159,6 +175,7 @@ const testing = {
         "https://canary.contestimg.wish.com/api/webimage/5d6ce5d4d182bf1616ef1a83-large.jpg?cache_buster=580a69b7731deccd82b0305e4c31ee8e",
       name: "TAROT1",
       price: 10,
+      isfeatured: false,
     },
     {
       category: "tarot",
@@ -168,6 +185,7 @@ const testing = {
         "https://canary.contestimg.wish.com/api/webimage/5d6ce5d4d182bf1616ef1a83-large.jpg?cache_buster=580a69b7731deccd82b0305e4c31ee8e",
       name: "TAROT2",
       price: 10,
+      isfeatured: false,
     },
   ],
 };
@@ -202,6 +220,10 @@ const ItemSchema = new mongoose.Schema({
     type: Number,
     required: true,
   },
+  isfeatured: {
+    type: Boolean,
+    required: true,
+  },
 });
 
 const UserSchema = new mongoose.Schema({
@@ -231,18 +253,6 @@ const UserSchema = new mongoose.Schema({
 const Item = mongoose.model("Item", ItemSchema);
 
 const User = mongoose.model("User", UserSchema);
-
-const newItem = new Item({
-  category: "crystal",
-  description:
-    "Celestine  (caelestis)  means  Heavenly  in Latin and wow, this is truly a heavenly crystal!",
-  image:
-    "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
-  name: "Celestine",
-  price: 24,
-});
-
-newItem.save();
 
 if (process.env.RESET_DB) {
   const seedDB = async () => {
@@ -327,12 +337,19 @@ app.post("/signin", async (req, res) => {
 
 // Kommer behöva lägga till kontakt med databasen
 app.get("/items", async (req, res) => {
-  const { category } = req.query;
+  const { category, featured } = req.query;
   console.log(category);
 
   if (category) {
     try {
       const items = await Item.find({ category: category });
+      res.status(200).json(items);
+    } catch (error) {
+      res.status(400).json({ error: "Something went wrong", details: error });
+    }
+  } else if (featured) {
+    try {
+      const items = await Item.find({ isfeatured: featured });
       res.status(200).json(items);
     } catch (error) {
       res.status(400).json({ error: "Something went wrong", details: error });

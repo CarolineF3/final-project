@@ -42,7 +42,7 @@ export const testing = {
       _id: "4",
     },
     {
-      category: "crystal",
+      category: "crystals",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image:
@@ -52,7 +52,7 @@ export const testing = {
       _id: "5",
     },
     {
-      category: "crystal",
+      category: "crystals",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image:
@@ -62,7 +62,7 @@ export const testing = {
       _id: "6",
     },
     {
-      category: "crystal",
+      category: "crystals",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image:
@@ -72,7 +72,7 @@ export const testing = {
       _id: "7",
     },
     {
-      category: "crystal",
+      category: "crystals",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image:

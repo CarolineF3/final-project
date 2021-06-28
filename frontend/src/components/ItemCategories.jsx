@@ -8,11 +8,12 @@ const ItemCategories = () => {
   const [sortedProducts, setSortedProducts] = useState([]);
 
   const categoryButtons = [
-    "Books",
-    "Crystals",
-    "Incense",
-    "Jewellery",
-    "Tarot",
+    "all items",
+    "books",
+    "crystals",
+    "incense",
+    "jewellery",
+    "tarot",
   ];
 
   return (
@@ -32,7 +33,7 @@ export default ItemCategories;
 const Wrapper = styled.aside`
   display: flex;
   flex-direction: column;
-  color: #ad5729;
+  color: #ba8b9b;
 `;
 
 const Title = styled.h3`

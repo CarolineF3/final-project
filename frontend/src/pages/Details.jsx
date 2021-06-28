@@ -5,7 +5,7 @@ import { useParams } from "react-router";
 
 const Details = () => {
   const { id } = useParams();
-  const [count, setCount] = useState(0);
+  const [count, setCount] = useState(1);
   const [item, setItem] = useState({});
   const API_URL = `http://localhost:8080/items/${id}`;
 
@@ -17,12 +17,14 @@ const Details = () => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => setItem(data))
-      .then((data) => console.log(data)) 
+      .then((data) => console.log(data))
       .catch((err) => alert(`Error while loading items:${err}`));
   };
 
   const decrementCount = () => {
-    setCount((prevCount) => prevCount - 1);
+    if (count > 1) {
+      setCount((prevCount) => prevCount - 1);
+    }
   };
 
   const incrementCount = () => {
@@ -144,12 +146,12 @@ const Button = styled.button`
   padding: 10px 0;
   border-radius: 0;
   border: none;
-  background-color: #f3ac9e;
+  background-color: #e8bcc8;
   color: #fff;
   cursor: pointer;
 
   &:hover {
-    background-color: #facac0;
+    filter: brightness(110%);
     transition-delay: 0.1s;
   }
 
