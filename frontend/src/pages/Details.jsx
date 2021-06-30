@@ -1,7 +1,11 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-//import { cart } from "../reducers/cart";
+import { useDispatch } from "react-redux";
 import { useParams } from "react-router";
+
+import Counter from "../components/Counter";
+
+import cart from "../reducers/cart";
 
 const Details = () => {
   const { id } = useParams();
@@ -9,6 +13,7 @@ const Details = () => {
   const [item, setItem] = useState({});
   const API_URL = `http://localhost:8080/items/${id}`;
 
+  const dispatch = useDispatch();
   useEffect(() => {
     fetchItem();
   }, []);
@@ -18,17 +23,12 @@ const Details = () => {
       .then((res) => res.json())
       .then((data) => setItem(data))
       .then((data) => console.log(data))
-      .catch((err) => alert(`Error while loading items:${err}`));
+      .catch((err) => alert(`Error while loading item:${err}`));
   };
 
-  const decrementCount = () => {
-    if (count > 1) {
-      setCount((prevCount) => prevCount - 1);
-    }
-  };
-
-  const incrementCount = () => {
-    setCount((prevCount) => prevCount + 1);
+  const addToCart = () => {
+    dispatch(cart.actions.addItem({ ...item, count }));
+    setCount(1);
   };
 
   return (
@@ -38,16 +38,8 @@ const Details = () => {
         <TextWrapper>
           <Header>{item.name}</Header>
           <Price>{item.price} SEK</Price>
-          <ButtonWrapper>
-            <DecrementButton onClick={decrementCount}>-</DecrementButton>
-            <Count>{count}</Count>
-            <IncrementButton onClick={incrementCount}>+</IncrementButton>
-          </ButtonWrapper>
-          <Button
-            type='button'
-            aria-label='ADD TO CART'
-            //onClick={() => dispatch(cart.actions.addItem(item))}
-          >
+          <Counter count={count} setCount={setCount} />
+          <Button type='button' aria-label='ADD TO CART' onClick={addToCart}>
             ADD TO CART
           </Button>
           <Description>{item.description}</Description>
@@ -66,10 +58,6 @@ const Wrapper = styled.div`
   width: 100%;
   height: auto;
   padding: 40px 0;
-
-  @media (min-width: 998px) {
-    height: 100vh;
-  }
 `;
 
 const ItemCardWrapper = styled.div`
@@ -112,47 +100,20 @@ const Price = styled.p`
   color: #a7a7a7;
 `;
 
-const ButtonWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  width: 9em;
-  margin-bottom: 15px;
-  padding: 8px;
-  border: 1px solid #dad9d9;
-`;
-
-const IncrementButton = styled.button`
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-`;
-
-const Count = styled.p`
-  font-size: 16px;
-`;
-
-const DecrementButton = styled.button`
-  background: transparent;
-  border: none;
-  cursor: pointer;
-  font-size: 16px;
-`;
-
 const Button = styled.button`
   width: 100%;
   margin-bottom: 15px;
   padding: 10px 0;
-  border-radius: 0;
-  border: none;
-  background-color: #e8bcc8;
-  color: #fff;
-  cursor: pointer;
+  color: var(--primary-btn-color);
+  background-color: var(--primary-btn-background-color);
 
   &:hover {
     filter: brightness(110%);
     transition-delay: 0.1s;
+  }
+
+  @media (min-width: 768px) {
+    width: 50%;
   }
 
   @media (min-width: 998px) {

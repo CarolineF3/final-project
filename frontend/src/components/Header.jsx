@@ -4,9 +4,9 @@ import styled from "styled-components";
 import { AiOutlineMenu } from "react-icons/ai";
 import { useDispatch } from "react-redux";
 
+import HamburgerNav from "../components/HamburgerNav";
 import Nav from "../components/Nav";
 import PagesNav from "../components/PagesNav";
-import HamburgerNav from "../components/HamburgerNav";
 
 import ui from "../reducers/ui";
 
@@ -55,15 +55,15 @@ const Wrapper = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 70px;
-  padding: 0 32px;
-  background-color: #fff;
+  height: 5em;
+  padding: 0 1.714em;
+  background-color: var(--secondary-background-color);
   border-bottom: 1px solid #dad9d9;
 
   @media (min-width: 998px) {
     flex-direction: column;
     justify-content: flex-start;
-    height: 110px;
+    height: 7.857em;
     padding: 0;
   }
 `;
@@ -75,23 +75,18 @@ const Home = styled(Link)`
 
 const CompanyName = styled.h1`
   margin: 0;
-  font-size: 1.75rem;
 
   @media (min-width: 998px) {
     margin: 20px 0;
     font-size: 2rem;
   }
 `;
-const Img = styled.img`
-  margin-right: 20px;
-  margin-left: 5px;
-`;
 
 const Button = styled.button`
-  margin-right: 54px;
+  margin-right: 3.857em;
   background-color: transparent;
   border: none;
-  font-size: 24px;
+  font-size: 1.714rem;
   cursor: pointer;
 `;
 

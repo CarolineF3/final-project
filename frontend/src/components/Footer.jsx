@@ -19,7 +19,7 @@ const Footer = () => {
         </Contact>
       </ContactWrapper>
       <NewsLetterWrapper>
-        <Header>NEWSLETTER 🦇</Header>
+        <Header>NEWSLETTER 🔮</Header>
         <Instructions>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -45,10 +45,9 @@ const Wrapper = styled.footer`
   width: 100%;
   height: auto;
   padding: 1.714em;
-  color: #000;
-  background-color: #9d9b9e;
+  background-color: var(--tertiary-background-color);
 
-  @media (min-width: 998px) {
+  @media (min-width: 768px) {
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
@@ -101,11 +100,8 @@ const Button = styled.button`
   width: 10em;
   margin-bottom: 5em;
   padding: 0.714em 0;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-  background-color: #464b5d;
-  cursor: pointer;
+  color: var(--primary-btn-color);
+  background-color: var(--primary-btn-background-color);
 
   &:hover {
     filter: brightness(110%);
@@ -115,8 +111,4 @@ const Button = styled.button`
 
 const Copyright = styled.p`
   text-align: center;
-
-  @media (min-width: 998px) {
-    display: none;
-  }
 `;

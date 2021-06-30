@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import listEndpoints from "express-list-endpoints";
 import crypto from "crypto";
 import bcrypt from "bcrypt";
+
 const testing = {
   sucess: true,
   items: [
@@ -45,10 +46,10 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK4",
       price: 10,
-      isfeatured: true,
+      isfeatured: false,
     },
     {
-      category: "crystal",
+      category: "crystals",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image:
@@ -58,17 +59,17 @@ const testing = {
       isfeatured: true,
     },
     {
-      category: "crystal",
+      category: "crystals",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL2",
       price: 10,
-      isfeatured: true,
+      isfeatured: false,
     },
     {
-      category: "crystal",
+      category: "crystals",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image:
@@ -78,7 +79,7 @@ const testing = {
       isfeatured: false,
     },
     {
-      category: "crystal",
+      category: "crystals",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       image:
@@ -105,7 +106,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE2",
       price: 10,
-      isfeatured: true,
+      isfeatured: false,
     },
     {
       category: "incense",
@@ -145,7 +146,7 @@ const testing = {
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY2",
       price: 10,
-      isfeatured: true,
+      isfeatured: false,
     },
     {
       category: "jewellery",
@@ -250,9 +251,19 @@ const UserSchema = new mongoose.Schema({
   },
 });
 
+const CartSchema = new mongoose.Schema({
+  items: { type: Array },
+  userId: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: "User",
+  },
+});
+
 const Item = mongoose.model("Item", ItemSchema);
 
 const User = mongoose.model("User", UserSchema);
+
+const Cart = mongoose.model("Cart", CartSchema);
 
 if (process.env.RESET_DB) {
   const seedDB = async () => {
@@ -302,6 +313,10 @@ app.post("/signup", async (req, res) => {
       lastname,
       email,
       password: bcrypt.hashSync(password, salt),
+    }).save();
+    const newCart = await new Cart({
+      items: [],
+      userId: newCart,
     }).save();
 
     res.json({
@@ -370,6 +385,16 @@ app.get("/items/:id", async (req, res) => {
   try {
     const item = await Item.findById(id).exec();
     res.json(item);
+  } catch {}
+});
+
+app.get("/cart", authenticateUser);
+app.get("/cart/:id", async (req, res) => {
+  const { id } = req.params;
+
+  try {
+    const cart = await Cart.findOne({ userId: id });
+    res.json(cart);
   } catch {}
 });
 

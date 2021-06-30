@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import ui from "../reducers/ui";
 
-// import ItemCard from "./components/ItemCard";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   const dispatch = useDispatch();
@@ -29,16 +29,13 @@ const Cart = () => {
             ✕
           </CloseButton>
         </CloseButtonAndHeaderWrapper>
-        {/* <Products>
-          {products.map((product) => (
-            <CartItem key={product.sys.id} product={product} />
-          ))}
-        </Products> */}
-        {/* <ItemCardWrapper>
+        <CartItemsWrapper>
           {items.map((item) => (
-            <ItemCard key={item._id} {...item} />
+            <>
+              <CartItem key={item._id} {...item} />
+            </>
           ))}
-        </ItemCardWrapper> */}
+        </CartItemsWrapper>
         <Checkout
           to='/checkout'
           onClick={() => dispatch(ui.actions.toggleCart())}
@@ -55,6 +52,10 @@ export default Cart;
 const CartSlide = styled.div`
   position: fixed;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(100%)")};
+  box-shadow: ${({ open }) =>
+    open
+      ? "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+      : "0"};
   top: 0;
   right: 0;
   bottom: 0;
@@ -63,7 +64,6 @@ const CartSlide = styled.div`
   overflow-y: scroll;
   transition: transform 0.3s ease-in-out;
   background-color: #fff9f8;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
   -ms-overflow-style: none;
   scrollbar-width: none;
   overflow-y: scroll;
@@ -92,14 +92,17 @@ const CloseButtonAndHeaderWrapper = styled.div`
   justify-content: space-between;
 `;
 
-const CloseButton = styled.button`
-  background-color: transparent;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
+const CartItemsWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  margin: 30px 0;
 `;
 
-const CartItem = styled.div``;
+const CloseButton = styled.button`
+  background-color: transparent;
+  font-size: 18px;
+`;
 
 const Header = styled.h2`
   margin-right: 40px;

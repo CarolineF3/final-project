@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
 import ItemCategories from "../components/ItemCategories";
 import ItemCard from "../components/ItemCard";
@@ -11,6 +11,7 @@ const Shop = () => {
   const filter = useSelector((store) => store.ui.filter);
   const [itemList, setItemList] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
+  const dispatch = useDispatch();
   let API;
 
   const handleWindowSizeChange = () => {
@@ -44,7 +45,11 @@ const Shop = () => {
         <Header>SHOP</Header>
         <CategoriesWrapper>
           {width <= 998 && (
-            <Button type='button' aria-label='Categories' onClick=''>
+            <Button
+              type='button'
+              aria-label='Categories'
+              onClick={() => dispatch(ui.actions.toggleCategories())}
+            >
               CATEGORIES
             </Button>
           )}

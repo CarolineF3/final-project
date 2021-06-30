@@ -8,6 +8,7 @@ import user from "../reducers/user";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [testar, setTestar] = useState("");
 
   const accessToken = useSelector((store) => store.user.accessToken);
   const dispatch = useDispatch();
@@ -41,6 +42,7 @@ const Login = () => {
           batch(() => {
             dispatch(user.actions.setAccessToken(data.accessToken));
             dispatch(user.actions.setErrors(null));
+            setTestar(data._id);
           });
         } else {
           dispatch(user.actions.setErrors(data));
@@ -48,6 +50,10 @@ const Login = () => {
       });
     setEmail("");
     setPassword("");
+
+    fetch(`http://192.168.10.146:8080/cart/${testar}`)
+      .then((res) => res.json())
+      .then((data) => console.log(data));
   };
 
   return (
@@ -83,12 +89,8 @@ const Wrapper = styled.form`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 46vh;
-  padding: 0.857em;
-
-  @media (min-width: 998px) {
-    height: 64vh;
-  }
+  height: auto;
+  padding: 0.857em 0.857em 5em 0.857em;
 `;
 
 const Header = styled.h2`
@@ -129,10 +131,8 @@ const Password = styled.input`
 const Button = styled.button`
   width: 24em;
   padding: 10px 0;
-  border-radius: 0;
-  border: none;
-  background-color: #e8bcc8;
-  color: #fff;
+  color: var(--primary-btn-color);
+  background-color: var(--primary-btn-background-color);
   cursor: pointer;
 
   &:hover {

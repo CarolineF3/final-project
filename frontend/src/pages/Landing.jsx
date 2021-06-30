@@ -36,8 +36,10 @@ const Landing = () => {
             <ItemCard key={item._id} {...item} />
           ))}
         </ItemCardWrapper>
-        <ToShop to='/shop'>TO THE SHOP</ToShop>
       </PopularItemsWrapper>
+      <ToShopWrapper>
+        <ToShop to='/shop'>TO THE SHOP</ToShop>
+      </ToShopWrapper>
     </>
   );
 };
@@ -73,10 +75,9 @@ const PopularItemsWrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: auto;
-  padding: 50px 32px;
+  padding: 50px 32px 0 32px;
 
   @media (min-width: 998px) {
-    padding: 50px 0;
   }
 `;
 
@@ -99,14 +100,21 @@ const ItemCardWrapper = styled.div`
   }
 `;
 
+const ToShopWrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 20px 0 60px 0;
+`;
+
 const ToShop = styled(Link)`
-  margin: 50px;
   padding: 10px 14px;
   border-radius: 0;
   border: none;
   text-decoration: none;
-  color: #fff;
-  background-color: #e8bcc8;
+  color: var(--primary-btn-color);
+  background-color: var(--primary-btn-background-color);
 
   &:hover {
     filter: brightness(110%);

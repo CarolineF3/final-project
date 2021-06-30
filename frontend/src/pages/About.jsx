@@ -48,7 +48,7 @@ const ProfileImg = styled.img`
 const Presentation = styled.p`
   margin-bottom: 3.571em;
 
-  @media (min-width: 998px) {
+  @media (min-width: 768px) {
     width: 35em;
   }
 `;

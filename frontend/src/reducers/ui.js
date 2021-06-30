@@ -4,6 +4,7 @@ const ui = createSlice({
   name: "ui",
   initialState: {
     openCart: false,
+    openCategories: false,
     openHamburger: false,
     filter: "",
   },
@@ -20,9 +21,14 @@ const ui = createSlice({
       state.openCart = !state.openCart;
     },
 
+    toggleCategories: (state, action) => {
+      state.openCategories = !state.openCategories;
+    },
+
     toggleHamburger: (state, action) => {
       state.openHamburger = !state.openHamburger;
     },
+
     setFilter: (state, action) => {
       state.filter = action.payload;
     },

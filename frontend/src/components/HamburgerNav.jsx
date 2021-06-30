@@ -12,14 +12,14 @@ const HamburgerNav = () => {
   console.log(open);
   return (
     <Wrapper open={open}>
-      <>
-        <button onClick={() => dispatch(ui.actions.toggleHamburger())}>
-          STÄNG
-        </button>
-        <MenuLink to='/shop'>Shop</MenuLink>
-        <MenuLink to='/about'>About</MenuLink>
-        <MenuLink to='/signin'>Log in</MenuLink>
-      </>
+      <ButtonAndMenuWrapper>
+        <CloseButton onClick={() => dispatch(ui.actions.toggleHamburger())}>
+          ✕
+        </CloseButton>
+        <MenuLink to='/shop'>SHOP</MenuLink>
+        <MenuLink to='/about'>ABOUT</MenuLink>
+        <MenuLink to='/signin'>SIGN IN</MenuLink>
+      </ButtonAndMenuWrapper>
     </Wrapper>
   );
 };
@@ -36,10 +36,33 @@ const Wrapper = styled.nav`
   width: 21.429em;
   overflow-y: scroll;
   transition: transform 0.3s ease-in-out;
-  background-color: #efd0cb;
+  background-color: #fff9f8;
+`;
+
+const ButtonAndMenuWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 25%;
+  padding: 30px;
+`;
+
+const CloseButton = styled.button`
+  background-color: transparent;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
 `;
 
 const MenuLink = styled(Link)`
   margin-right: 0.357em;
   text-decoration: none;
+  font-size: 1rem;
+  letter-spacing: 0.08em;
+  color: #373737;
+
+  &:visited {
+    color: #373737;
+  }
 `;

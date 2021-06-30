@@ -6,8 +6,10 @@ import ui from "../reducers/ui";
 
 const Category = ({ categoryName }) => {
   const dispatch = useDispatch();
-  const sortOnClick = (category) => {
-    dispatch(ui.actions.setFilter(categoryName));
+  const sortOnClick = () => {
+    categoryName === "all items"
+      ? dispatch(ui.actions.setFilter(""))
+      : dispatch(ui.actions.setFilter(categoryName));
   };
   return (
     <CategoryLink>

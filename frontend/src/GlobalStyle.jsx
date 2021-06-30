@@ -7,6 +7,16 @@ const GlobalStyle = createGlobalStyle`
     font-family: "Quicksand", sans-serif;
     margin: 0;
     padding: 0;
+
+    --primary-background-color: #fff9f8;
+    --secondary-background-color: #fff;
+    --tertiary-background-color: #f3dde2;
+
+    --primary-btn-background-color: #e8bcc8;
+    --primary-btn-color: #fff;
+
+    --primary-font-color: #373737;
+    --secondary-font-color: #ca97a6;
   }
 
   html {
@@ -28,15 +38,15 @@ const GlobalStyle = createGlobalStyle`
   }
 
   main {
-    background-color: #fff9f8;
-    color: #373737;
+    background-color: var(--primary-background-color);
+    color: var(--primary-font-color);
   }
 
   h1 {
     font-family: "Engagement", cursive;
     font-size: 1.75rem;
     font-weight: 300;
-    color:#ca97a6;
+    color: var(--secondary-font-color);
     text-shadow: 0.5px 0.5px #6e525c;
   }
 
@@ -53,7 +63,10 @@ const GlobalStyle = createGlobalStyle`
   }
 
   button {
+    border-radius: 0;
+    border: none;
     letter-spacing: 0.1em;
+    cursor: pointer;
   }
 
 `;

@@ -104,12 +104,8 @@ const Wrapper = styled.form`
   flex-direction: column;
   align-items: center;
   width: 100%;
-  height: 56vh;
-  padding: 0.857em;
-
-  @media (min-width: 998px) {
-    height: 74vh;
-  }
+  height: auto;
+  padding: 0.857em 0.857em 5em 0.857em;
 `;
 
 const Header = styled.h2`
@@ -176,10 +172,8 @@ const Password = styled.input`
 const Button = styled.button`
   width: 24em;
   padding: 10px 0;
-  border-radius: 0;
-  border: none;
-  color: #fff;
-  background-color: #e8bcc8;
+  color: var(--primary-btn-color);
+  background-color: var(--primary-btn-background-color);
   cursor: pointer;
 
   &:hover {
