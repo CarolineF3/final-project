@@ -12,6 +12,7 @@ import cloudinaryStorage from "multer-storage-cloudinary";
 import itemsInStore from "./itemsInStore";
 
 dotenv.config();
+
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/foretaget";
 mongoose.connect(mongoUrl, {
   useNewUrlParser: true,
