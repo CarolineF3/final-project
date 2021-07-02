@@ -3,13 +3,18 @@ import styled from "styled-components";
 import { useDispatch } from "react-redux";
 import { Link } from "react-router-dom";
 import { GiWitchFlight } from "react-icons/gi";
-import { BsSearch } from "react-icons/bs";
 import { BsBag } from "react-icons/bs";
+import { BsSearch } from "react-icons/bs";
 import ui from "../reducers/ui";
 
 const Nav = () => {
   const dispatch = useDispatch();
 
+  const handleOpenCart = () => {
+    dispatch(ui.actions.toggleCart());
+    dispatch(ui.actions.closeHamburger());
+    dispatch(ui.actions.closeCategories());
+  };
   return (
     <Wrapper>
       <NavList>
@@ -24,7 +29,7 @@ const Nav = () => {
           </Link>
         </NavItem>
         <NavItem>
-          <CartButton onClick={() => dispatch(ui.actions.toggleCart())}>
+          <CartButton onClick={handleOpenCart}>
             <CartIcon />
           </CartButton>
         </NavItem>
@@ -39,7 +44,7 @@ const Wrapper = styled.nav`
   display: flex;
   flex-direction: row;
 
-  @media (min-width: 998px) {
+  @media (min-width: 768px) {
     position: absolute;
     top: 20px;
     right: 7%;
@@ -56,7 +61,7 @@ const NavList = styled.ul`
 const NavItem = styled.li`
   vertical-align: bottom;
   list-style-type: none;
-  margin-right: 12px;
+  margin-right: 0.857em;
   font-size: 1.5rem;
 
   &:last-child {
@@ -66,23 +71,21 @@ const NavItem = styled.li`
 
 const CartButton = styled.button`
   background: transparent;
-  border: none;
   font-size: 1.5rem;
-  color: #373737;
-  cursor: pointer;
+  color: var(--primary-font-color);
 `;
 
 const WitchIcon = styled(GiWitchFlight)`
   vertical-align: bottom;
-  color: #373737;
+  color: var(--primary-font-color);
 `;
 
 const SearchIcon = styled(BsSearch)`
   vertical-align: bottom;
-  color: #373737;
+  color: var(--primary-font-color);
 `;
 
 const CartIcon = styled(BsBag)`
   vertical-align: bottom;
-  color: #373737;
+  color: var(--primary-font-color);
 `;

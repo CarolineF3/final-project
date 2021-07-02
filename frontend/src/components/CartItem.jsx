@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
@@ -6,8 +6,8 @@ import cart from "../reducers/cart";
 
 import Counter from "./Counter";
 
-const CartItem = ({ image, name, price, quantity, _id }) => {
-  const [count, setCount] = useState(quantity);
+const CartItem = ({ item }) => {
+  const [count, setCount] = useState(item.quantity);
   const dispatch = useDispatch();
   const isInitialMount = useRef(true);
 
@@ -15,17 +15,17 @@ const CartItem = ({ image, name, price, quantity, _id }) => {
     if (isInitialMount.current) {
       isInitialMount.current = false;
     } else {
-      dispatch(cart.actions.updateItem({ _id, count }));
+      dispatch(cart.actions.addItem({ count, item }));
     }
   }, [count]);
 
   return (
     <Wrapper>
-      <Img src={image}></Img>
+      <Img src={item.image}></Img>
       <DetailsAndCounterWrapper>
-        <Name>{name}</Name>
-        <Price>{price} SEK</Price>
-        <Counter count={count} setCount={setCount} />
+        <Name>{item.name}</Name>
+        <Price>{item.price} SEK</Price>
+        <Counter count={count} setCount={setCount} minValue={0} />
       </DetailsAndCounterWrapper>
     </Wrapper>
   );
@@ -38,7 +38,7 @@ const Wrapper = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 100%;
-  margin-bottom: 25px;
+  margin-bottom: 1.786em;
 `;
 
 const Img = styled.img`
@@ -48,8 +48,8 @@ const Img = styled.img`
 const DetailsAndCounterWrapper = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
-  padding: 40px 0;
+  justify-content: space-between;
+  padding: 3.571em 0;
 `;
 
 const Name = styled.h3`
@@ -57,5 +57,5 @@ const Name = styled.h3`
 `;
 
 const Price = styled.p`
-  color: #a7a7a7;
+  color: var(--tertiary-font-color);
 `;

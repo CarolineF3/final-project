@@ -18,7 +18,7 @@ const ItemCategories = () => {
 
   return (
     <Wrapper>
-      <Title>CATEGORIES</Title>
+      <Header>CATEGORIES</Header>
       <ListWrapper>
         {categoryButtons.map((categoryButton) => (
           <Category key={categoryButton} categoryName={categoryButton} />
@@ -33,10 +33,10 @@ export default ItemCategories;
 const Wrapper = styled.aside`
   display: flex;
   flex-direction: column;
-  color: #ba8b9b;
+  color: var(--quaternary-font-color);
 `;
 
-const Title = styled.h3`
+const Header = styled.h3`
   margin-bottom: 1em;
   margin-left: 0.714em;
   font-size: 1rem;

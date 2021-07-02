@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { Link } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 import ui from "../reducers/ui";
 
@@ -9,16 +9,30 @@ const HamburgerNav = () => {
   const open = useSelector((store) => store.ui.openHamburger);
   const dispatch = useDispatch();
 
-  console.log(open);
   return (
     <Wrapper open={open}>
       <ButtonAndMenuWrapper>
-        <CloseButton onClick={() => dispatch(ui.actions.toggleHamburger())}>
+        <CloseButton onClick={() => dispatch(ui.actions.closeHamburger())}>
           ✕
         </CloseButton>
-        <MenuLink to='/shop'>SHOP</MenuLink>
-        <MenuLink to='/about'>ABOUT</MenuLink>
-        <MenuLink to='/signin'>SIGN IN</MenuLink>
+        <MenuLink
+          to='/shop'
+          onClick={() => dispatch(ui.actions.closeHamburger())}
+        >
+          SHOP
+        </MenuLink>
+        <MenuLink
+          to='/about'
+          onClick={() => dispatch(ui.actions.closeHamburger())}
+        >
+          ABOUT
+        </MenuLink>
+        <MenuLink
+          to='/signin'
+          onClick={() => dispatch(ui.actions.closeHamburger())}
+        >
+          SIGN IN
+        </MenuLink>
       </ButtonAndMenuWrapper>
     </Wrapper>
   );
@@ -29,6 +43,10 @@ export default HamburgerNav;
 const Wrapper = styled.nav`
   position: fixed;
   transform: ${({ open }) => (open ? "translateX(0)" : "translateX(-100%)")};
+  box-shadow: ${({ open }) =>
+    open
+      ? "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)"
+      : "0"};
   top: 0;
   left: 0;
   bottom: 0;
@@ -36,7 +54,7 @@ const Wrapper = styled.nav`
   width: 21.429em;
   overflow-y: scroll;
   transition: transform 0.3s ease-in-out;
-  background-color: #fff9f8;
+  background-color: var(--primary-background-color);
 `;
 
 const ButtonAndMenuWrapper = styled.div`
@@ -44,15 +62,13 @@ const ButtonAndMenuWrapper = styled.div`
   flex-direction: column;
   align-items: flex-start;
   justify-content: space-between;
-  height: 25%;
-  padding: 30px;
+  height: 35%;
+  padding: 2.143em;
 `;
 
 const CloseButton = styled.button`
   background-color: transparent;
-  border: none;
-  font-size: 18px;
-  cursor: pointer;
+  font-size: 1.286rem;
 `;
 
 const MenuLink = styled(Link)`
@@ -60,9 +76,9 @@ const MenuLink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
   letter-spacing: 0.08em;
-  color: #373737;
+  color: var(--primary-font-color);
 
   &:visited {
-    color: #373737;
+    color: var(--primary-font-color);
   }
 `;

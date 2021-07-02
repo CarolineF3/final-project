@@ -1,21 +1,20 @@
 import React from "react";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const About = () => {
   return (
     <Wrapper>
       <ProfileImg
-        src={require("../assets/profileimg1.jpg")}
+        src={require("../assets/profileimg.jpg")}
         alt='Caroline'
       ></ProfileImg>
       <Presentation>
-        Hi! 🧙🏻‍♀️🔮 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-        eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-        minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-        ex ea commodo consequat. Duis aute irure dolor in reprehenderit in
-        voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur
-        sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt
-        mollit anim id est laborum.
+        Hi! 🧙🏻‍♀️🔮 I'm Caroline and this is my final project at the Technigo
+        bootcamp (spring 2021). Happy to see you here! If you're interested in
+        purchasing some witchy stuff, I highly recommend that you visit
+        <OhLaMoon to='https://ohlamoon.se/'></OhLaMoon>, one of my favourite
+        sites and the inspiration for this project. Blessed be!
       </Presentation>
     </Wrapper>
   );
@@ -52,3 +51,5 @@ const Presentation = styled.p`
     width: 35em;
   }
 `;
+
+const OhLaMoon = styled(Link)``;

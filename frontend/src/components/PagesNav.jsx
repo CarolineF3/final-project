@@ -7,7 +7,7 @@ const PagesNav = () => {
     <Nav>
       <Navlink to='/shop'>SHOP</Navlink>
       <Navlink to='/about'>ABOUT</Navlink>
-      <Navlink to='/login'>LOG IN</Navlink>
+      <Navlink to='/signin'>SIGN IN</Navlink>
     </Nav>
   );
 };
@@ -18,14 +18,14 @@ const Nav = styled.nav`
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 20%;
+  width: 24.571em;
 `;
 
 const Navlink = styled(Link)`
   text-decoration: none;
   font-size: 1rem;
   letter-spacing: 0.08em;
-  color: #373737;
+  color: var(--primary-font-color);
 
   &:hover {
     text-decoration: underline;

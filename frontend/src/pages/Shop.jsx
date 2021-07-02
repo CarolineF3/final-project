@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 
-import ItemCategories from "../components/ItemCategories";
 import ItemCard from "../components/ItemCard";
+import ItemCategories from "../components/ItemCategories";
 
 import ui from "../reducers/ui";
 
@@ -39,29 +39,35 @@ const Shop = () => {
       .catch((err) => alert(`Error while loading items:${err}`));
   };
 
+  console.log(itemList);
+
+  const handleOpenMenu = () => {
+    dispatch(ui.actions.toggleCategories());
+    dispatch(ui.actions.closeCart());
+    dispatch(ui.actions.closeHamburger());
+  };
+
   return (
-    <>
-      <Wrapper>
-        <Header>SHOP</Header>
-        <CategoriesWrapper>
-          {width <= 998 && (
-            <Button
-              type='button'
-              aria-label='Categories'
-              onClick={() => dispatch(ui.actions.toggleCategories())}
-            >
-              CATEGORIES
-            </Button>
-          )}
-          {width > 998 && <ItemCategories />}
-        </CategoriesWrapper>
-        <ItemCardWrapper>
-          {itemList.map((item) => (
-            <ItemCard key={item._id} {...item} />
-          ))}
-        </ItemCardWrapper>
-      </Wrapper>
-    </>
+    <Wrapper>
+      <Header>SHOP</Header>
+      <CategoriesWrapper>
+        {width <= 998 && (
+          <Button
+            type='button'
+            aria-label='Categories'
+            onClick={handleOpenMenu}
+          >
+            CATEGORIES
+          </Button>
+        )}
+        {width > 998 && <ItemCategories />}
+      </CategoriesWrapper>
+      <ItemCardWrapper>
+        {itemList.map((item) => (
+          <ItemCard key={item._id} {...item} />
+        ))}
+      </ItemCardWrapper>
+    </Wrapper>
   );
 };
 
@@ -96,10 +102,10 @@ const CategoriesWrapper = styled.div`
   align-items: center;
   text-align: center;
   margin-bottom: 2.143em;
+  padding: 1.071em;
   border: 1px solid #dad9d9;
   border-right: none;
   border-left: none;
-  padding: 1.071em;
 
   @media (min-width: 998px) {
     width: 15%;
@@ -110,9 +116,7 @@ const CategoriesWrapper = styled.div`
 
 const Button = styled.button`
   width: 50%;
-  border: none;
   background: transparent;
-  cursor: pointer;
 `;
 
 const ItemCardWrapper = styled.div`

@@ -1,19 +1,20 @@
 import React from "react";
-import { useSelector } from "react-redux";
 import styled from "styled-components";
+import { useSelector } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import About from "./pages/About";
 import Checkout from "./pages/Checkout";
 import Details from "./pages/Details";
 import Landing from "./pages/Landing";
-import Login from "./pages/Login";
 import Shop from "./pages/Shop";
+import SignIn from "./pages/SignIn";
 import SignUp from "./pages/SignUp";
 
 import Cart from "./components/Cart";
 import HamburgerNav from "./components/HamburgerNav";
 import Header from "./components/Header";
+import ItemCategoriesMenu from "./components/ItemCategoriesMenu";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
@@ -25,6 +26,7 @@ const App = () => {
       <Header />
       <HamburgerNav />
       <Cart />
+      <ItemCategoriesMenu />
       <main>
         <Switch>
           <Route exact path='/'>
@@ -36,8 +38,8 @@ const App = () => {
           <Route exact path='/checkout'>
             <Checkout />
           </Route>
-          <Route exact path='/login'>
-            <Login />
+          <Route exact path='/signin'>
+            <SignIn />
           </Route>
           <Route exact path='/products/:id'>
             <Details />

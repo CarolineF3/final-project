@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { useSelector, useDispatch, batch } from "react-redux";
 import { Link, useHistory } from "react-router-dom";
-import styled from "styled-components";
 
 import user from "../reducers/user";
 
@@ -58,53 +58,61 @@ const SignUp = () => {
   };
 
   return (
-    <Wrapper onSubmit={onFormSubmit}>
-      <Header>CREATE ACCOUNT</Header>
-      <Instructions>Fill in the information below:</Instructions>
-      <FirstName
-        type='text'
-        aria-label='First name'
-        placeholder='First name'
-        value={firstName}
-        onChange={(e) => setFirstName(e.target.value)}
-      ></FirstName>
-      <LastName
-        type='text'
-        aria-label='Last name'
-        placeholder='Last name'
-        value={lastName}
-        onChange={(e) => setLastName(e.target.value)}
-      ></LastName>
-      <Email
-        type='email'
-        aria-label='Email'
-        placeholder='Email'
-        value={email}
-        onChange={(e) => setEmail(e.target.value)}
-      ></Email>
-      <Password
-        type='password'
-        aria-label='Password'
-        placeholder='Password'
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      ></Password>
-      <Button type='submit'>CREATE ACCOUNT</Button>
-      <CreateAccount>
-        Already a member? <Login to='/login'>Sign in</Login>
-      </CreateAccount>
+    <Wrapper>
+      <Form onSubmit={onFormSubmit}>
+        <Header>CREATE ACCOUNT</Header>
+        <Instructions>Fill in the information below:</Instructions>
+        <FirstName
+          type='text'
+          aria-label='First name'
+          placeholder='First name'
+          value={firstName}
+          onChange={(e) => setFirstName(e.target.value)}
+        ></FirstName>
+        <LastName
+          type='text'
+          aria-label='Last name'
+          placeholder='Last name'
+          value={lastName}
+          onChange={(e) => setLastName(e.target.value)}
+        ></LastName>
+        <Email
+          type='email'
+          aria-label='Email'
+          placeholder='Email'
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        ></Email>
+        <Password
+          type='password'
+          aria-label='Password'
+          placeholder='Password'
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        ></Password>
+        <Button type='submit'>CREATE ACCOUNT</Button>
+        <CreateAccount>
+          Already a member? <SignIn to='/signin'>Sign in</SignIn>
+        </CreateAccount>
+      </Form>
     </Wrapper>
   );
 };
 
 export default SignUp;
 
-const Wrapper = styled.form`
+const Wrapper = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: auto;
+`;
+
+const Form = styled.form`
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
-  height: auto;
   padding: 0.857em 0.857em 5em 0.857em;
 `;
 
@@ -118,63 +126,26 @@ const Instructions = styled.p`
 `;
 
 const FirstName = styled.input`
-  width: 24em;
-  margin-bottom: 14px;
-  padding: 8px;
-  border: 1px solid #dad9d9;
-  border-radius: 0;
-
-  &:focus {
-    border: 1px solid #000;
-    outline: none;
-  }
+  margin-bottom: 1.143em;
 `;
 
 const LastName = styled.input`
-  width: 24em;
-  margin-bottom: 14px;
-  padding: 8px;
-  border: 1px solid #dad9d9;
-  border-radius: 0;
-
-  &:focus {
-    border: 1px solid #000;
-    outline: none;
-  }
+  margin-bottom: 1em;
 `;
 
 const Email = styled.input`
-  width: 24em;
-  margin-bottom: 14px;
-  padding: 8px;
-  border: 1px solid #dad9d9;
-  border-radius: 0;
-
-  &:focus {
-    border: 1px solid #000;
-    outline: none;
-  }
+  margin-bottom: 1em;
 `;
 
 const Password = styled.input`
-  width: 24em;
-  margin-bottom: 16px;
-  padding: 8px;
-  border: 1px solid #dad9d9;
-  border-radius: 0;
-
-  &:focus {
-    border: 1px solid #000;
-    outline: none;
-  }
+  margin-bottom: 1.143em;
 `;
 
 const Button = styled.button`
   width: 24em;
-  padding: 10px 0;
+  padding: 0.714em 0;
   color: var(--primary-btn-color);
   background-color: var(--primary-btn-background-color);
-  cursor: pointer;
 
   &:hover {
     filter: brightness(110%);
@@ -183,23 +154,23 @@ const Button = styled.button`
 `;
 
 const CreateAccount = styled.p`
-  margin-top: 18px;
-  color: #a7a7a7;
+  margin-top: 1.286em;
+  color: var(--tertiary-font-color);
 `;
 
-const Login = styled(Link)`
+const SignIn = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: #373737;
+    color: var(--primary-font-color);
     transition-delay: 0.1s;
   }
 
   &:visited {
-    color: #a7a7a7;
+    color: var(--tertiary-font-color);
   }
 
   &:visited:hover {
-    color: #373737;
+    color: var(--primary-font-color);
   }
 `;

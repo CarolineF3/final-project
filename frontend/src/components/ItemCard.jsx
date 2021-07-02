@@ -1,6 +1,6 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import styled from "styled-components";
+import { Link } from "react-router-dom";
 
 const ItemCard = ({ image, name, price, _id }) => {
   return (
@@ -34,7 +34,7 @@ const ImgLink = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: #a7a7a7;
+    color: var(--tertiary-font-color);
     transition-delay: 0.1s;
   }
 `;
@@ -49,13 +49,13 @@ const Img = styled.img`
 `;
 
 const Name = styled.p`
-  margin: 10px 0 5px 0;
-  color: #373737;
+  margin: 0.714em 0 0.357em 0;
   font-size: 1rem;
   letter-spacing: 0.08em;
+  color: var(--primary-font-color);
 
   &:hover {
-    color: #a7a7a7;
+    color: var(--tertiary-font-color);
     transition-delay: 0.1s;
   }
 `;
@@ -64,5 +64,5 @@ const Price = styled.p`
   margin: 0;
   font-size: 0.625;
   letter-spacing: 0.08em;
-  color: #a7a7a7;
+  color: var(--tertiary-font-color);
 `;

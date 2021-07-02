@@ -15,7 +15,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK1",
-      price: 10,
+      price: 100,
       isfeatured: true,
     },
     {
@@ -25,7 +25,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK2",
-      price: 10,
+      price: 100,
       isfeatured: false,
     },
     {
@@ -35,7 +35,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK3",
-      price: 10,
+      price: 100,
       isfeatured: false,
     },
     {
@@ -45,7 +45,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_8055_800x.jpg?v=1613384126",
       name: "BOOK4",
-      price: 10,
+      price: 100,
       isfeatured: false,
     },
     {
@@ -55,7 +55,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL1",
-      price: 10,
+      price: 50,
       isfeatured: true,
     },
     {
@@ -65,7 +65,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL2",
-      price: 10,
+      price: 50,
       isfeatured: false,
     },
     {
@@ -75,7 +75,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL3",
-      price: 10,
+      price: 50,
       isfeatured: false,
     },
     {
@@ -85,7 +85,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/CelestinG_Ohlamoon_1200x_101d4d3c-0c1b-4163-a563-da0a2ec92ada_600x.png?v=1622705254",
       name: "CRYSTAL4",
-      price: 10,
+      price: 50,
       isfeatured: false,
     },
     {
@@ -95,7 +95,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE1",
-      price: 10,
+      price: 50,
       isfeatured: true,
     },
     {
@@ -105,7 +105,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE2",
-      price: 10,
+      price: 60,
       isfeatured: false,
     },
     {
@@ -115,7 +115,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE3",
-      price: 10,
+      price: 60,
       isfeatured: false,
     },
     {
@@ -125,7 +125,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/salviabuntmini_ohlamoon_1000x_e1abad62-437e-4ffe-a945-e491b306a674_800x.png?v=1592385222",
       name: "INCENSE4",
-      price: 10,
+      price: 60,
       isfeatured: false,
     },
     {
@@ -135,7 +135,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY1",
-      price: 10,
+      price: 120,
       isfeatured: true,
     },
     {
@@ -145,7 +145,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY2",
-      price: 10,
+      price: 120,
       isfeatured: false,
     },
     {
@@ -155,7 +155,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY3",
-      price: 10,
+      price: 120,
       isfeatured: false,
     },
     {
@@ -165,7 +165,7 @@ const testing = {
       image:
         "https://cdn.shopify.com/s/files/1/0032/0379/3014/products/IMG_3233-3_800x.jpg?v=1599138697",
       name: "JEWELLERY4",
-      price: 10,
+      price: 120,
       isfeatured: false,
     },
     {
@@ -175,7 +175,7 @@ const testing = {
       image:
         "https://canary.contestimg.wish.com/api/webimage/5d6ce5d4d182bf1616ef1a83-large.jpg?cache_buster=580a69b7731deccd82b0305e4c31ee8e",
       name: "TAROT1",
-      price: 10,
+      price: 150,
       isfeatured: false,
     },
     {
@@ -185,12 +185,11 @@ const testing = {
       image:
         "https://canary.contestimg.wish.com/api/webimage/5d6ce5d4d182bf1616ef1a83-large.jpg?cache_buster=580a69b7731deccd82b0305e4c31ee8e",
       name: "TAROT2",
-      price: 10,
+      price: 150,
       isfeatured: false,
     },
   ],
 };
-// import { testing } from "./testing.js";
 
 const mongoUrl = process.env.MONGO_URL || "mongodb://localhost/foretaget";
 mongoose.connect(mongoUrl, {
@@ -329,21 +328,24 @@ app.post("/signup", async (req, res) => {
   }
 });
 
-// or '/session' or '/login'
 app.post("/signin", async (req, res) => {
   const { email, password } = req.body;
-
   try {
     const user = await User.findOne({ email });
-
-    if (user && bcrypt.compareSync(password, user.password)) {
-      res.json({
-        success: true,
-        userID: user._id,
-        accessToken: user.accessToken,
-      });
+    if (user) {
+      if (bcrypt.compareSync(password, user.password)) {
+        res.json({
+          success: true,
+          userID: user._id,
+          accessToken: user.accessToken,
+        });
+      } else {
+        console.log("wrong password");
+        res.status(400).json({ success: false, message: "Wrong password" });
+      }
     } else {
-      res.status(404).json({ success: false, message: "User not found" });
+      console.log("user not found");
+      res.status(400).json({ success: false, message: "User not found" });
     }
   } catch (error) {
     res.status(400).json({ success: false, message: "Invalid request", error });
@@ -388,12 +390,13 @@ app.get("/items/:id", async (req, res) => {
   } catch {}
 });
 
-app.get("/cart", authenticateUser);
+app.get("/cart/:id", authenticateUser);
 app.get("/cart/:id", async (req, res) => {
   const { id } = req.params;
 
   try {
     const cart = await Cart.findOne({ userId: id });
+    console.log("skicka min vagn! ", cart);
     res.json(cart);
   } catch {}
 });

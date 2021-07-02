@@ -1,9 +1,9 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 
-const Counter = ({ count, setCount }) => {
+const Counter = ({ count, setCount, minValue = 1 }) => {
   const decrementCount = () => {
-    if (count > 1) {
+    if (count > minValue) {
       setCount((prevCount) => prevCount - 1);
     }
   };
@@ -28,21 +28,21 @@ const ButtonWrapper = styled.div`
   flex-direction: row;
   justify-content: space-around;
   width: 9em;
-  margin-bottom: 15px;
-  padding: 8px;
+  margin-bottom: 1.071em;
+  padding: 0.571em;
   border: 1px solid #dad9d9;
 `;
 
 const DecrementButton = styled.button`
   background: transparent;
-  font-size: 16px;
+  font-size: 1.143rem;
 `;
 
 const Count = styled.p`
-  font-size: 16px;
+  font-size: 1.143rem;
 `;
 
 const IncrementButton = styled.button`
   background: transparent;
-  font-size: 16px;
+  font-size: 1.143rem;
 `;

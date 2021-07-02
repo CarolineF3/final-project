@@ -10,6 +10,7 @@ const Category = ({ categoryName }) => {
     categoryName === "all items"
       ? dispatch(ui.actions.setFilter(""))
       : dispatch(ui.actions.setFilter(categoryName));
+    dispatch(ui.actions.closeCategories());
   };
   return (
     <CategoryLink>
@@ -31,9 +32,7 @@ const CategoryLink = styled.li`
 
 const Button = styled.button`
   background: transparent;
-  border: none;
-  cursor: pointer;
-  color: #ba8b9b;
+  color: var(--quaternary-font-color);
   text-transform: uppercase;
 
   &:hover {

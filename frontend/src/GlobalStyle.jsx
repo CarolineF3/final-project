@@ -17,6 +17,8 @@ const GlobalStyle = createGlobalStyle`
 
     --primary-font-color: #373737;
     --secondary-font-color: #ca97a6;
+    --tertiary-font-color: #a7a7a7;
+    --quaternary-font-color: #ba8b9b;
   }
 
   html {
@@ -69,6 +71,17 @@ const GlobalStyle = createGlobalStyle`
     cursor: pointer;
   }
 
+  input {
+    width: 24em;
+    padding: 8px;
+    border: 1px solid #dad9d9;
+    border-radius: 0;
+
+  &:focus {
+    border: 1px solid #000;
+    outline: none;
+  }
+  }
 `;
 
 export default GlobalStyle;

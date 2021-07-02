@@ -10,13 +10,6 @@ const ui = createSlice({
   },
 
   reducers: {
-    // openCart: (state, action) => {
-    //   state.openCart = true;
-    // },
-    // closeCart: (state, action) => {
-    //   state.openCart = false;
-    // },
-
     toggleCart: (state, action) => {
       state.openCart = !state.openCart;
     },
@@ -31,6 +24,18 @@ const ui = createSlice({
 
     setFilter: (state, action) => {
       state.filter = action.payload;
+    },
+
+    closeCart: (state, action) => {
+      state.openCart = false;
+    },
+
+    closeCategories: (state, action) => {
+      state.openCategories = false;
+    },
+
+    closeHamburger: (state, action) => {
+      state.openHamburger = false;
     },
   },
 });

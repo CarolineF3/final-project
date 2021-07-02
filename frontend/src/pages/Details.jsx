@@ -27,14 +27,14 @@ const Details = () => {
   };
 
   const addToCart = () => {
-    dispatch(cart.actions.addItem({ ...item, count }));
+    dispatch(cart.actions.addItem({ count, item }));
     setCount(1);
   };
 
   return (
     <Wrapper>
       <ItemCardWrapper>
-        <ItemImage src={item.image} />
+        <ItemImg src={item.image} />
         <TextWrapper>
           <Header>{item.name}</Header>
           <Price>{item.price} SEK</Price>
@@ -42,7 +42,7 @@ const Details = () => {
           <Button type='button' aria-label='ADD TO CART' onClick={addToCart}>
             ADD TO CART
           </Button>
-          <Description>{item.description}</Description>
+          <p>{item.description}</p>
         </TextWrapper>
       </ItemCardWrapper>
     </Wrapper>
@@ -57,7 +57,7 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: auto;
-  padding: 40px 0;
+  padding: 2.857em 0;
 `;
 
 const ItemCardWrapper = styled.div`
@@ -74,9 +74,9 @@ const ItemCardWrapper = styled.div`
   }
 `;
 
-const ItemImage = styled.img`
+const ItemImg = styled.img`
   width: 90%;
-  margin-bottom: 18px;
+  margin-bottom: 1.286em;
 
   @media (min-width: 998px) {
     width: 45%;
@@ -92,7 +92,7 @@ const TextWrapper = styled.div`
 `;
 
 const Header = styled.h2`
-  margin-bottom: 15px;
+  margin-bottom: 1.071em;
 `;
 
 const Price = styled.p`
@@ -102,8 +102,8 @@ const Price = styled.p`
 
 const Button = styled.button`
   width: 100%;
-  margin-bottom: 15px;
-  padding: 10px 0;
+  margin-bottom: 1.071em;
+  padding: 0.714em 0;
   color: var(--primary-btn-color);
   background-color: var(--primary-btn-background-color);
 
@@ -120,5 +120,3 @@ const Button = styled.button`
     width: 24em;
   }
 `;
-
-const Description = styled.p``;

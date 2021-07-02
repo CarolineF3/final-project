@@ -11,18 +11,17 @@ const Footer = () => {
   return (
     <Wrapper>
       <ContactWrapper>
-        <Contact>
+        <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
           eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
           minim veniam, quis nostrud exercitation ullamco laboris nisi ut
           aliquip ex ea commodo consequat.
-        </Contact>
+        </p>
       </ContactWrapper>
       <NewsLetterWrapper>
-        <Header>NEWSLETTER 🔮</Header>
+        <Header>NEWSLETTER 🦇</Header>
         <Instructions>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua.
+          Sign up for our newsletter and let the magic begin!
         </Instructions>
         <Email
           type='email'
@@ -57,14 +56,13 @@ const Wrapper = styled.footer`
 `;
 
 const ContactWrapper = styled.div`
+  width: 85%;
   margin-bottom: 1.429em;
 
   @media (min-width: 998px) {
     width: 35%;
   }
 `;
-
-const Contact = styled.p``;
 
 const NewsLetterWrapper = styled.form`
   display: flex;
@@ -86,14 +84,6 @@ const Instructions = styled.p`
 const Email = styled.input`
   width: 22em;
   margin-bottom: 1em;
-  padding: 0.571em;
-  border: 1px solid #dad9d9;
-  border-radius: 0;
-
-  &:focus {
-    border: 1px solid #000;
-    outline: none;
-  }
 `;
 
 const Button = styled.button`

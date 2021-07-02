@@ -1,6 +1,9 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import backgroundImg from "../assets/backgroundimg3.jpg";
+import largebackgroundImg from "../assets/desktop.jpg";
+import mediumbackgroundImg from "../assets/tablet.jpg";
+import smallbackgroundImg from "../assets/mobile.jpg";
+
 import { Link } from "react-router-dom";
 
 import ItemCard from "../components/ItemCard";
@@ -21,14 +24,7 @@ const Landing = () => {
 
   return (
     <>
-      <Wrapper>
-        <QuoteWrapper>
-          <Quote>
-            "The moon has awoken with the sleep of the sun. The light has been
-            broken, the spell has begun."
-          </Quote>
-        </QuoteWrapper>
-      </Wrapper>
+      <Wrapper></Wrapper>
       <Header>POPULAR ITEMS</Header>
       <PopularItemsWrapper>
         <ItemCardWrapper>
@@ -48,24 +44,23 @@ export default Landing;
 
 const Wrapper = styled.div`
   position: relative;
-  background-image: url(${backgroundImg});
+  background-image: url(${smallbackgroundImg});
   width: 100%;
-  height: 110vh;
+  height: 70vh;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
-`;
 
-const QuoteWrapper = styled.div`
-  position: absolute;
-  top: 220px;
-  left: 170px;
-  width: 28%;
-`;
+  @media (min-width: 768px) {
+    background-image: url(${mediumbackgroundImg});
+    height: 80vh;
+  }
 
-const Quote = styled.p`
-  position: absolute;
-  font-size: 34px;
-  font-family: "Engagement", cursive;
-  color: #fffeeb;
+  @media (min-width: 998px) {
+    background-image: url(${largebackgroundImg});
+    height: 110vh;
+  }
 `;
 
 const PopularItemsWrapper = styled.div`
@@ -75,15 +70,12 @@ const PopularItemsWrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: auto;
-  padding: 50px 32px 0 32px;
-
-  @media (min-width: 998px) {
-  }
+  padding: 3.571em 2.286em 0 2.286em;
 `;
 
 const Header = styled.h2`
   text-align: center;
-  margin-top: 50px;
+  margin-top: 3.571em;
 `;
 
 const ItemCardWrapper = styled.div`
@@ -105,11 +97,11 @@ const ToShopWrapper = styled.div`
   align-items: center;
   justify-content: center;
   width: 100%;
-  padding: 20px 0 60px 0;
+  padding: 1.429em 0 4.286em 0;
 `;
 
 const ToShop = styled(Link)`
-  padding: 10px 14px;
+  padding: 0.714em 1em;
   border-radius: 0;
   border: none;
   text-decoration: none;
