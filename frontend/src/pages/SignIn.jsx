@@ -22,7 +22,7 @@ const SignIn = () => {
   const onFormSubmit = (e) => {
     e.preventDefault();
 
-    const API_LOGIN = "http://192.168.10.146:8080/signin";
+    const API_LOGIN = "https://stay-witchy.herokuapp.com/signin";
     const options = {
       method: "POST",
       headers: {

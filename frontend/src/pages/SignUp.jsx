@@ -24,7 +24,7 @@ const SignUp = () => {
   const onFormSubmit = (e) => {
     e.preventDefault();
 
-    const API_REGISTER = "http://192.168.10.146:8080/signup";
+    const API_REGISTER = "https://stay-witchy.herokuapp.com/signup";
     const options = {
       method: "POST",
       headers: {

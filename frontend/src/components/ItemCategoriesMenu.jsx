@@ -11,10 +11,12 @@ const ItemCategoriesMenu = () => {
   const dispatch = useDispatch();
   return (
     <Wrapper open={open}>
-      <CloseButton onClick={() => dispatch(ui.actions.toggleCategories())}>
-        ✕
-      </CloseButton>
-      <ItemCategories />
+      <CloseButtonAndItemCategoriesWrapper>
+        <CloseButton onClick={() => dispatch(ui.actions.toggleCategories())}>
+          ✕
+        </CloseButton>
+        <ItemCategories />
+      </CloseButtonAndItemCategoriesWrapper>
     </Wrapper>
   );
 };
@@ -45,7 +47,18 @@ const Wrapper = styled.div`
   }
 `;
 
+const CloseButtonAndItemCategoriesWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: space-between;
+  height: 50%;
+  padding: 2.143em;
+`;
+
 const CloseButton = styled.button`
   background-color: transparent;
-  font-size: 1rem;
+  font-size: 1.286rem;
+  margin: 0 0 1.786em 0.714em;
+  color: var(--quaternary-font-color);
 `;

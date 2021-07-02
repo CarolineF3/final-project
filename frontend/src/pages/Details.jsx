@@ -11,7 +11,7 @@ const Details = () => {
   const { id } = useParams();
   const [count, setCount] = useState(1);
   const [item, setItem] = useState({});
-  const API_URL = `http://localhost:8080/items/${id}`;
+  const API_URL = `https://stay-witchy.herokuapp.com/items/${id}`;
 
   const dispatch = useDispatch();
   useEffect(() => {

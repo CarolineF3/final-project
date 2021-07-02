@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import { Link } from "react-router-dom";
 
 const About = () => {
   return (
@@ -10,11 +9,11 @@ const About = () => {
         alt='Caroline'
       ></ProfileImg>
       <Presentation>
-        Hi! 🧙🏻‍♀️🔮 I'm Caroline and this is my final project at the Technigo
-        bootcamp (spring 2021). Happy to see you here! If you're interested in
-        purchasing some witchy stuff, I highly recommend that you visit
-        <OhLaMoon to='https://ohlamoon.se/'></OhLaMoon>, one of my favourite
-        sites and the inspiration for this project. Blessed be!
+        Hi! 🧙🏻‍♀️🔮 I'm Caroline and this is my final project at Technigo (spring
+        2021). Happy to see you here! If you're interested in purchasing some
+        witchy stuff for real, I highly recommend that you visit{" "}
+        <Link href='https://ohlamoon.se/'>Oh La Moon</Link>, one of my favourite
+        sites and the inspiration for this project.
       </Presentation>
     </Wrapper>
   );
@@ -52,4 +51,12 @@ const Presentation = styled.p`
   }
 `;
 
-const OhLaMoon = styled(Link)``;
+const Link = styled.a`
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  color: var(--primary-font-color);
+
+  &:hover {
+    color: var(--tertiary-font-color);
+  }
+`;

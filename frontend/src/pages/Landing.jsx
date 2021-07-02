@@ -16,7 +16,7 @@ const Landing = () => {
   }, []);
 
   const fetchItems = () => {
-    fetch("http://localhost:8080/items?featured=true")
+    fetch("https://stay-witchy.herokuapp.com/items?featured=true")
       .then((res) => res.json())
       .then((data) => setItemList(data))
       .catch((err) => alert(`Error while loading items:${err}`));
@@ -52,7 +52,7 @@ const Wrapper = styled.div`
   -o-background-size: cover;
   background-size: cover;
 
-  @media (min-width: 768px) {
+  @media (min-width: 767px) {
     background-image: url(${mediumbackgroundImg});
     height: 80vh;
   }

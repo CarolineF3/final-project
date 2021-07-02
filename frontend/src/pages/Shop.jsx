@@ -31,8 +31,8 @@ const Shop = () => {
 
   const fetchItems = () => {
     filter
-      ? (API = `http://localhost:8080/items?category=${filter}`)
-      : (API = "http://localhost:8080/items");
+      ? (API = `https://stay-witchy.herokuapp.com/items?category=${filter}`)
+      : (API = "https://stay-witchy.herokuapp.com/items");
     fetch(API)
       .then((res) => res.json())
       .then((data) => setItemList(data))
@@ -60,7 +60,7 @@ const Shop = () => {
             CATEGORIES
           </Button>
         )}
-        {width > 998 && <ItemCategories />}
+        {width >= 998 && <ItemCategories />}
       </CategoriesWrapper>
       <ItemCardWrapper>
         {itemList.map((item) => (
