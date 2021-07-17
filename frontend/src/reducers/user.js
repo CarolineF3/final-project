@@ -5,6 +5,7 @@ const user = createSlice({
   initialState: {
     username: null,
     accessToken: null,
+    id: null,
     errors: null,
   },
   reducers: {
@@ -22,6 +23,9 @@ const user = createSlice({
 
     setCartItems: (store, action) => {
       store.cart = action.payload;
+    },
+    setId: (store, action) => {
+      store.userId = action.payload;
     },
   },
 });

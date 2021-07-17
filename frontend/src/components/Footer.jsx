@@ -19,7 +19,7 @@ const Footer = () => {
         </p>
       </ContactWrapper>
       <NewsLetterWrapper>
-        <Header>NEWSLETTER 🦇</Header>
+        <Header>NEWSLETTER</Header>
         <Instructions>
           Sign up for our newsletter and let the magic begin!
         </Instructions>
@@ -31,7 +31,7 @@ const Footer = () => {
         ></Email>
         <Button>SUBSCRIBE</Button>
       </NewsLetterWrapper>
-      <Copyright>&copy; STAY WITCHY</Copyright>
+      <Copyright>&copy; CAROLINE FAHLGREN</Copyright>
     </Wrapper>
   );
 };

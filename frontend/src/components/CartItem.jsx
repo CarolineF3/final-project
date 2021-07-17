@@ -1,23 +1,14 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useDispatch } from "react-redux";
 
 import cart from "../reducers/cart";
 
 import Counter from "./Counter";
+import CartCounter from "./CartCounter";
 
 const CartItem = ({ item }) => {
-  const [count, setCount] = useState(item.quantity);
   const dispatch = useDispatch();
-  const isInitialMount = useRef(true);
-
-  useEffect(() => {
-    if (isInitialMount.current) {
-      isInitialMount.current = false;
-    } else {
-      dispatch(cart.actions.addItem({ count, item }));
-    }
-  }, [count]);
 
   return (
     <Wrapper>
@@ -25,7 +16,7 @@ const CartItem = ({ item }) => {
       <DetailsAndCounterWrapper>
         <Name>{item.name}</Name>
         <Price>{item.price} SEK</Price>
-        <Counter count={count} setCount={setCount} minValue={0} />
+        <CartCounter item={item} />
       </DetailsAndCounterWrapper>
     </Wrapper>
   );
@@ -54,8 +45,10 @@ const DetailsAndCounterWrapper = styled.div`
 
 const Name = styled.h3`
   font-size: 1rem;
+  margin-bottom: 1rem;
 `;
 
 const Price = styled.p`
+  margin-bottom: 1rem;
   color: var(--tertiary-font-color);
 `;

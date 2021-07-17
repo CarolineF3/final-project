@@ -9,6 +9,7 @@ import ui from "../reducers/ui";
 
 const Shop = () => {
   const filter = useSelector((store) => store.ui.filter);
+  const userId = useSelector((store) => store.user.id);
   const [itemList, setItemList] = useState([]);
   const [width, setWidth] = useState(window.innerWidth);
   const dispatch = useDispatch();
@@ -29,6 +30,10 @@ const Shop = () => {
     fetchItems();
   }, [filter]);
 
+  useEffect(() => {
+    fetchCart();
+  }, []);
+
   const fetchItems = () => {
     filter
       ? (API = `https://stay-witchy.herokuapp.com/items?category=${filter}`)
@@ -39,7 +44,11 @@ const Shop = () => {
       .catch((err) => alert(`Error while loading items:${err}`));
   };
 
-  console.log(itemList);
+  const fetchCart = () => {
+    fetch(`http://localhost:8080/cart/${userId}`)
+      .then((res) => res.json())
+      .then((cart) => console.log(cart));
+  };
 
   const handleOpenMenu = () => {
     dispatch(ui.actions.toggleCategories());
@@ -109,6 +118,7 @@ const CategoriesWrapper = styled.div`
 
   @media (min-width: 998px) {
     width: 15%;
+    padding-top: 0;
     text-align: left;
     border: none;
   }

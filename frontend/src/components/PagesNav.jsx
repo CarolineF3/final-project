@@ -7,7 +7,6 @@ const PagesNav = () => {
     <Nav>
       <Navlink to='/shop'>SHOP</Navlink>
       <Navlink to='/about'>ABOUT</Navlink>
-      <Navlink to='/signin'>SIGN IN</Navlink>
     </Nav>
   );
 };
@@ -17,8 +16,8 @@ export default PagesNav;
 const Nav = styled.nav`
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-  width: 24.571em;
+  justify-content: space-around;
+  width: 12.571em;
 `;
 
 const Navlink = styled(Link)`

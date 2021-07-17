@@ -45,6 +45,7 @@ const SignUp = () => {
           batch(() => {
             dispatch(user.actions.setAccessToken(data.accessToken));
             dispatch(user.actions.setErrors(null));
+            dispatch(user.actions.setId(data.userID));
           });
         } else {
           dispatch(user.actions.setErrors(data));

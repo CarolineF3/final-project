@@ -9,11 +9,11 @@ const About = () => {
         alt='Caroline'
       ></ProfileImg>
       <Presentation>
-        Hi! 🧙🏻‍♀️🔮 I'm Caroline and this is my final project at Technigo (spring
-        2021). Happy to see you here! If you're interested in purchasing some
-        witchy stuff for real, I highly recommend that you visit{" "}
+        Hi! 🧙🏻‍♀️🔮 I'm Caroline, this is my final project at the Technigo bootcamp
+        (spring 2021). Happy to see you here! If you're interested in purchasing
+        some witchy stuff for real, I highly recommend that you visit{" "}
         <Link href='https://ohlamoon.se/'>Oh La Moon</Link>, one of my favourite
-        sites and the inspiration for this project.
+        shops and the inspiration for this project.
       </Presentation>
     </Wrapper>
   );

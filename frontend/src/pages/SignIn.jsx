@@ -23,6 +23,7 @@ const SignIn = () => {
     e.preventDefault();
 
     const API_LOGIN = "https://stay-witchy.herokuapp.com/signin";
+
     const options = {
       method: "POST",
       headers: {
@@ -38,14 +39,17 @@ const SignIn = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
+          console.log(data);
           batch(() => {
             dispatch(user.actions.setAccessToken(data.accessToken));
             dispatch(user.actions.setErrors(null));
+            dispatch(user.actions.setId(data.userID));
           });
         } else {
           dispatch(user.actions.setErrors(data));
         }
       });
+
     setEmail("");
     setPassword("");
   };

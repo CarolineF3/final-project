@@ -22,7 +22,6 @@ const Details = () => {
     fetch(API_URL)
       .then((res) => res.json())
       .then((data) => setItem(data))
-      .then((data) => console.log(data))
       .catch((err) => alert(`Error while loading item:${err}`));
   };
 
@@ -39,7 +38,7 @@ const Details = () => {
           <Header>{item.name}</Header>
           <Price>{item.price} SEK</Price>
           <Counter count={count} setCount={setCount} />
-          <Button type='button' aria-label='ADD TO CART' onClick={addToCart}>
+          <Button type='submit' aria-label='ADD TO CART' onClick={addToCart}>
             ADD TO CART
           </Button>
           <p>{item.description}</p>

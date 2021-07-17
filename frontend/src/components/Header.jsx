@@ -85,7 +85,6 @@ const CompanyName = styled.h1`
 `;
 
 const Button = styled.button`
-  margin-right: 3.857em;
   background-color: transparent;
   font-size: 1.714rem;
 `;

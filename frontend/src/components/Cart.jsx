@@ -4,12 +4,11 @@ import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
 import ui from "../reducers/ui";
 
-import NewCartItem from "./NewCartItem";
+import CartItem from "./CartItem";
 
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((store) => store.cart.items);
-  console.log(items);
   const open = useSelector((store) => store.ui.openCart);
 
   const totalSum = useSelector((store) =>
@@ -30,9 +29,7 @@ const Cart = () => {
         </HeaderAndCloseButtonWrapper>
         <CartItemsWrapper>
           {items.map((item) => (
-            <>
-              <NewCartItem key={item._id} item={item} />
-            </>
+            <CartItem key={item._id} item={item} />
           ))}
         </CartItemsWrapper>
         <Checkout

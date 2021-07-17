@@ -24,7 +24,11 @@ const Landing = () => {
 
   return (
     <>
-      <Wrapper></Wrapper>
+      <picture>
+        <source media='(min-width: 767px)' srcset={mediumbackgroundImg} />
+        <source media='(min-width: 998px)' srcset={largebackgroundImg} />
+        <Img src={smallbackgroundImg} alt='' />
+      </picture>
       <Header>POPULAR ITEMS</Header>
       <PopularItemsWrapper>
         <ItemCardWrapper>
@@ -42,6 +46,12 @@ const Landing = () => {
 
 export default Landing;
 
+const Img = styled.img`
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+`;
+
 const Wrapper = styled.div`
   position: relative;
   background-image: url(${smallbackgroundImg});
@@ -51,6 +61,10 @@ const Wrapper = styled.div`
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
+  min-width: 100%;
+  background-size: contain;
+  background-repeat: no-repeat;
 
   @media (min-width: 767px) {
     background-image: url(${mediumbackgroundImg});
