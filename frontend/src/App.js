@@ -34,7 +34,15 @@ const App = () => {
   }, [userId]);
 
   const getCart = () => {
-    fetch(`https://stay-witchy.herokuapp.com/cart/${userId}`)
+    const options = {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: accessToken,
+      },
+    };
+
+    fetch(`https://stay-witchy.herokuapp.com/cart/${userId}`, options)
       .then((res) => res.json())
       .then((cart) => settingCart(cart.items))
       .catch((error) => console.log(error));

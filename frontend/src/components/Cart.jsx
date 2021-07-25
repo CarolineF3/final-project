@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -30,11 +30,12 @@ const Cart = () => {
 
   const sendCart = () => {
     const Auth = JSON.stringify({ Authorization: accessToken });
+
     const options = {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
-        Auth,
+        Authorization: accessToken,
       },
       body: JSON.stringify({
         itemList: items,
@@ -43,7 +44,7 @@ const Cart = () => {
 
     fetch(`https://stay-witchy.herokuapp.com/cart/${userId}`, options)
       .then((res) => res.json())
-      .then((cart) => console.log("klart!", cart.items))
+      .then((cart) => console.log(cart.items))
       .catch((error) => console.log(error));
   };
 
