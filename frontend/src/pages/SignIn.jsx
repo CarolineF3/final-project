@@ -9,7 +9,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const errorM = useSelector((store) => store.user.console.errors);
+  const errorM = useSelector((store) => store.user.errors);
   const accessToken = useSelector((store) => store.user.accessToken);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -40,14 +40,13 @@ const SignIn = () => {
       .then((res) => res.json())
       .then((data) => {
         if (data.success) {
-          console.log(data);
           batch(() => {
             dispatch(user.actions.setAccessToken(data.accessToken));
             dispatch(user.actions.setErrors(null));
             dispatch(user.actions.setId(data.userID));
           });
         } else {
-          dispatch(user.actions.setErrors(data));
+          dispatch(user.actions.setErrors(data.message));
         }
       });
 

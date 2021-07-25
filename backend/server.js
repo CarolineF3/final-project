@@ -117,7 +117,7 @@ const app = express();
 
 app.use(
   cors({
-    origin: "https://www.section.io",
+    origin: "https://stay-witchy.netlify.app",
     methods: ["GET", "POST"],
   })
 );

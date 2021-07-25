@@ -18,7 +18,8 @@ const user = createSlice({
     },
 
     setErrors: (store, action) => {
-      store.errors = action.errors;
+      console.log("errors: ", action.payload);
+      store.errors = action.payload;
     },
 
     setCartItems: (store, action) => {

@@ -27,7 +27,6 @@ const App = () => {
   const cartItems = useSelector((store) => store.cart.items);
   const dispatch = useDispatch();
 
-  // Ska flytta bort det här från App.
   useEffect(() => {
     if (userId) {
       getCart();
