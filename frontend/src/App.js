@@ -1,6 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import About from "./pages/About";
@@ -18,8 +18,38 @@ import ItemCategoriesMenu from "./components/ItemCategoriesMenu";
 import Footer from "./components/Footer";
 import ScrollToTop from "./components/ScrollToTop";
 
+import cart from "./reducers/cart";
+
 const App = () => {
   const open = useSelector((store) => store.ui.openCart);
+  const userId = useSelector((store) => store.user.userId);
+  const accessToken = useSelector((store) => store.user.accessToken);
+  const cartItems = useSelector((store) => store.cart.items);
+  const dispatch = useDispatch();
+
+  // Ska flytta bort det här från App.
+  useEffect(() => {
+    if (userId) {
+      getCart();
+    }
+  }, [userId]);
+
+  const getCart = () => {
+    fetch(`https://stay-witchy.herokuapp.com/cart/${userId}`)
+      .then((res) => res.json())
+      .then((cart) => settingCart(cart.items))
+      .catch((error) => console.log(error));
+  };
+
+  const settingCart = (items) => {
+    if (items) {
+      items.map((item) => {
+        const quantity = item.quantity;
+        dispatch(cart.actions.addItem({ count: quantity, item }));
+      });
+    }
+  };
+
   return (
     <Router>
       <ScrollToTop />

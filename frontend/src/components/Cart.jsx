@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useDispatch, useSelector } from "react-redux";
 import { Link } from "react-router-dom";
@@ -6,9 +6,13 @@ import ui from "../reducers/ui";
 
 import CartItem from "./CartItem";
 
+import cart from "../reducers/cart";
+
 const Cart = () => {
   const dispatch = useDispatch();
   const items = useSelector((store) => store.cart.items);
+  const userId = useSelector((store) => store.user.userId);
+  const accessToken = useSelector((store) => store.user.accessToken);
   const open = useSelector((store) => store.ui.openCart);
 
   const totalSum = useSelector((store) =>
@@ -17,6 +21,40 @@ const Cart = () => {
       0
     )
   );
+
+  useEffect(() => {
+    if (accessToken) {
+      sendCart();
+    }
+  }, [items]);
+
+  const sendCart = () => {
+    const Auth = JSON.stringify({ Authorization: accessToken });
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Auth,
+      },
+      body: JSON.stringify({
+        itemList: items,
+      }),
+    };
+
+    fetch(`https://stay-witchy.herokuapp.com/cart/${userId}`, options)
+      .then((res) => res.json())
+      .then((cart) => console.log("klart!", cart.items))
+      .catch((error) => console.log(error));
+  };
+
+  const settingCart = (items) => {
+    if (items) {
+      items.map((item) => {
+        const quantity = item.quantity;
+        dispatch(cart.actions.addItem({ count: quantity, item }));
+      });
+    }
+  };
 
   return (
     <CartSlide open={open}>
@@ -57,12 +95,11 @@ const CartSlide = styled.div`
   bottom: 0;
   z-index: 2;
   width: 24.429em;
-  overflow-y: scroll;
+  /* overflow-y: scroll; */
   transition: transform 0.3s ease-in-out;
   background-color: var(--primary-background-color);
   -ms-overflow-style: none;
   scrollbar-width: none;
-  overflow-y: scroll;
 
   &::-webkit-scrollbar {
     display: none;
@@ -79,6 +116,9 @@ const CartContent = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 85%;
+  overflow-y: scroll;
+  max-height: 100vh;
+
   margin: 2.857em 1.429em 1.429em 1.429em;
 `;
 
@@ -93,6 +133,7 @@ const CartItemsWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: 2.143em 0;
+  max-height: 90vh;
 `;
 
 const CloseButton = styled.button`

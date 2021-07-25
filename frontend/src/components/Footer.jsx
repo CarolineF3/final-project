@@ -10,27 +10,29 @@ const Footer = () => {
 
   return (
     <Wrapper>
-      <ContactWrapper>
-        <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat.
-        </p>
-      </ContactWrapper>
-      <NewsLetterWrapper>
-        <Header>NEWSLETTER</Header>
-        <Instructions>
-          Sign up for our newsletter and let the magic begin!
-        </Instructions>
-        <Email
-          type='email'
-          aria-label='Email'
-          placeholder='Email'
-          onChange={(e) => setEmail(e.target.value)}
-        ></Email>
-        <Button>SUBSCRIBE</Button>
-      </NewsLetterWrapper>
+      <ContactAndNewsletterWrapper>
+        <ContactWrapper>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim
+            ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+            aliquip ex ea commodo consequat.
+          </p>
+        </ContactWrapper>
+        <NewsLetterWrapper>
+          <Header>NEWSLETTER</Header>
+          <Instructions>
+            Sign up for our newsletter and let the magic begin!
+          </Instructions>
+          <Email
+            type='email'
+            aria-label='Email'
+            placeholder='Email'
+            onChange={(e) => setEmail(e.target.value)}
+          ></Email>
+          <Button>SUBSCRIBE</Button>
+        </NewsLetterWrapper>
+      </ContactAndNewsletterWrapper>
       <Copyright>&copy; CAROLINE FAHLGREN</Copyright>
     </Wrapper>
   );
@@ -47,17 +49,26 @@ const Wrapper = styled.footer`
   background-color: var(--tertiary-background-color);
 
   @media (min-width: 768px) {
+    padding: 3.929em;
+  }
+`;
+
+const ContactAndNewsletterWrapper = styled.div`
+  @media (min-width: 767px) {
+    display: flex;
     flex-direction: row;
-    justify-content: space-around;
-    flex-wrap: wrap;
-    height: auto;
-    padding-top: 3.929em;
+    justify-content: space-between;
+    width: 100%;
   }
 `;
 
 const ContactWrapper = styled.div`
   width: 85%;
   margin-bottom: 1.429em;
+
+  @media (min-width: 767px) {
+    width: 40%;
+  }
 
   @media (min-width: 998px) {
     width: 35%;
@@ -101,4 +112,9 @@ const Button = styled.button`
 
 const Copyright = styled.p`
   text-align: center;
+
+  @media (min-width: 767px) {
+    display: block;
+    text-align: left;
+  }
 `;

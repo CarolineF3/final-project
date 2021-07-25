@@ -32,7 +32,7 @@ const Header = () => {
 
   return (
     <Wrapper>
-      {width <= 768 && (
+      {width < 768 && (
         <>
           <Button type='button' aria-label='Menu' onClick={handleOpenhamburger}>
             <HamburgerIcon />
@@ -44,7 +44,7 @@ const Header = () => {
         <CompanyName>Stay Witchy</CompanyName>
       </Home>
       <Nav />
-      {width > 768 && <PagesNav />}
+      {width >= 768 && <PagesNav />}
     </Wrapper>
   );
 };

@@ -34,6 +34,7 @@ const Wrapper = styled.div`
 
 const Img = styled.img`
   width: 45%;
+  object-fit: contain;
 `;
 
 const DetailsAndCounterWrapper = styled.div`

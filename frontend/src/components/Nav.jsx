@@ -29,7 +29,7 @@ const Nav = () => {
           </Link>
         </NavItem>
         <NavItem>
-          <Link>
+          <Link to='/'>
             <SearchIcon />
           </Link>
         </NavItem>

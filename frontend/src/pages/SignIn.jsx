@@ -9,6 +9,7 @@ const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
+  const errorM = useSelector((store) => store.user.console.errors);
   const accessToken = useSelector((store) => store.user.accessToken);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -53,6 +54,7 @@ const SignIn = () => {
     setEmail("");
     setPassword("");
   };
+
   return (
     <Wrapper>
       <Form onSubmit={onFormSubmit}>
@@ -89,6 +91,10 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: auto;
+
+  @media (min-width: 767px) and (max-width: 1024px) {
+    height: 57vh;
+  }
 `;
 
 const Form = styled.form`

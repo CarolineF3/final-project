@@ -30,10 +30,6 @@ const Shop = () => {
     fetchItems();
   }, [filter]);
 
-  useEffect(() => {
-    fetchCart();
-  }, []);
-
   const fetchItems = () => {
     filter
       ? (API = `https://stay-witchy.herokuapp.com/items?category=${filter}`)
@@ -42,12 +38,6 @@ const Shop = () => {
       .then((res) => res.json())
       .then((data) => setItemList(data))
       .catch((err) => alert(`Error while loading items:${err}`));
-  };
-
-  const fetchCart = () => {
-    fetch(`http://localhost:8080/cart/${userId}`)
-      .then((res) => res.json())
-      .then((cart) => console.log(cart));
   };
 
   const handleOpenMenu = () => {

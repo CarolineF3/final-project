@@ -34,7 +34,6 @@ const ImgLink = styled(Link)`
   text-decoration: none;
 
   &:hover {
-    color: var(--tertiary-font-color);
     transition-delay: 0.1s;
   }
 `;

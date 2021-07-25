@@ -25,8 +25,8 @@ const Landing = () => {
   return (
     <>
       <picture>
-        <source media='(min-width: 767px)' srcset={mediumbackgroundImg} />
-        <source media='(min-width: 998px)' srcset={largebackgroundImg} />
+        <source media='(min-width: 998px)' srcSet={largebackgroundImg} />
+        <source media='(min-width: 767px)' srcSet={mediumbackgroundImg} />
         <Img src={smallbackgroundImg} alt='' />
       </picture>
       <Header>POPULAR ITEMS</Header>
@@ -50,31 +50,6 @@ const Img = styled.img`
   width: 100%;
   height: auto;
   object-fit: cover;
-`;
-
-const Wrapper = styled.div`
-  position: relative;
-  background-image: url(${smallbackgroundImg});
-  width: 100%;
-  height: 70vh;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-
-  min-width: 100%;
-  background-size: contain;
-  background-repeat: no-repeat;
-
-  @media (min-width: 767px) {
-    background-image: url(${mediumbackgroundImg});
-    height: 80vh;
-  }
-
-  @media (min-width: 998px) {
-    background-image: url(${largebackgroundImg});
-    height: 110vh;
-  }
 `;
 
 const PopularItemsWrapper = styled.div`
@@ -102,7 +77,7 @@ const ItemCardWrapper = styled.div`
 
   @media (min-width: 998px) {
     justify-content: left;
-    width: 80%;
+    width: 90%;
   }
 `;
 

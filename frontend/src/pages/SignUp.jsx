@@ -108,6 +108,10 @@ const Wrapper = styled.div`
   justify-content: center;
   width: 100%;
   height: auto;
+
+  @media (min-width: 767px) and (max-width: 1024px) {
+    height: 57vh;
+  }
 `;
 
 const Form = styled.form`
