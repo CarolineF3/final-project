@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import styled from "styled-components";
 import { useSelector, useDispatch } from "react-redux";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
@@ -59,38 +60,45 @@ const App = () => {
   return (
     <Router>
       <ScrollToTop />
-      <Header />
-      <HamburgerNav />
-      <Cart />
-      <ItemCategoriesMenu />
-      <main>
-        <Switch>
-          <Route exact path='/'>
-            <Landing />
-          </Route>
-          <Route exact path='/about'>
-            <About />
-          </Route>
-          <Route exact path='/checkout'>
-            <Checkout />
-          </Route>
-          <Route exact path='/signin'>
-            <SignIn />
-          </Route>
-          <Route exact path='/products/:id'>
-            <Details />
-          </Route>
-          <Route exact path='/shop'>
-            <Shop />
-          </Route>
-          <Route exact path='/signup'>
-            <SignUp />
-          </Route>
-        </Switch>
-      </main>
-      <Footer />
+      <Wrapper>
+        <Header />
+        <HamburgerNav />
+        <Cart />
+        <ItemCategoriesMenu />
+        <main>
+          <Switch>
+            <Route exact path='/'>
+              <Landing />
+            </Route>
+            <Route exact path='/about'>
+              <About />
+            </Route>
+            <Route exact path='/checkout'>
+              <Checkout />
+            </Route>
+            <Route exact path='/signin'>
+              <SignIn />
+            </Route>
+            <Route exact path='/products/:id'>
+              <Details />
+            </Route>
+            <Route exact path='/shop'>
+              <Shop />
+            </Route>
+            <Route exact path='/signup'>
+              <SignUp />
+            </Route>
+          </Switch>
+        </main>
+        <Footer />
+      </Wrapper>
     </Router>
   );
 };
 
 export default App;
+
+const Wrapper = styled.div`
+  max-width: 1300px;
+  position: relative;
+`;

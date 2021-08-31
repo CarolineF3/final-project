@@ -52,6 +52,7 @@ const Header = () => {
 export default Header;
 
 const Wrapper = styled.header`
+  position: relative;
   display: flex;
   flex-direction: row;
   align-items: center;
