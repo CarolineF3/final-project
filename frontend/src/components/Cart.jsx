@@ -96,7 +96,6 @@ const CartSlide = styled.div`
   bottom: 0;
   z-index: 2;
   width: 24.429em;
-  /* overflow-y: scroll; */
   transition: transform 0.3s ease-in-out;
   background-color: var(--primary-background-color);
   -ms-overflow-style: none;
@@ -117,10 +116,14 @@ const CartContent = styled.div`
   align-items: center;
   justify-content: space-between;
   height: 85%;
-  overflow-y: scroll;
-  max-height: 100vh;
-
   margin: 2.857em 1.429em 1.429em 1.429em;
+  overflow-y: scroll;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+
+  &::-webkit-scrollbar {
+    display: none;
+  }
 `;
 
 const HeaderAndCloseButtonWrapper = styled.div`
@@ -134,7 +137,6 @@ const CartItemsWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   margin: 2.143em 0;
-  max-height: 90vh;
 `;
 
 const CloseButton = styled.button`

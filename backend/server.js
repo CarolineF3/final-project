@@ -100,7 +100,6 @@ if (process.env.RESET_DB) {
 
 const authenticateUser = async (req, res, next) => {
   const accessToken = req.header("Authorization");
-  console.log(accessToken);
   try {
     const user = await User.findOne({ accessToken });
     if (user) {

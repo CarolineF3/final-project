@@ -1,15 +1,9 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 import styled from "styled-components";
-import { useDispatch } from "react-redux";
 
-import cart from "../reducers/cart";
-
-import Counter from "./Counter";
 import CartCounter from "./CartCounter";
 
 const CartItem = ({ item }) => {
-  const dispatch = useDispatch();
-
   return (
     <Wrapper>
       <Img src={item.image}></Img>
