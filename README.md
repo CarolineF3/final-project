@@ -7,3 +7,4 @@ The biggest challenges that I faced was how to prioritize (I will continue addin
 Technologies: React, React router, Redux, Mongoose Express, Styled components, Crypto, Bcrypt.</br>
 
 View it live: https://stay-witchy.netlify.app/
+Backend: https://github.com/CarolineF3/final-project-backend
