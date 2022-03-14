@@ -1,5 +1,8 @@
 import React, { useEffect, useState } from "react";
 import styled from "styled-components";
+import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
+import { Carousel } from "react-responsive-carousel";
+
 import largebackgroundImg from "../assets/desktop.jpg";
 import mediumbackgroundImg from "../assets/tablet.jpg";
 import smallbackgroundImg from "../assets/mobile.jpg";
@@ -24,11 +27,17 @@ const Landing = () => {
 
   return (
     <>
-      <picture>
-        <source media='(min-width: 998px)' srcSet={largebackgroundImg} />
-        <source media='(min-width: 767px)' srcSet={mediumbackgroundImg} />
-        <Img src={smallbackgroundImg} alt='' />
-      </picture>
+      <Carousel>
+        <div>
+          <img src={largebackgroundImg} />
+        </div>
+        <div>
+          <img src={largebackgroundImg} />
+        </div>
+        <div>
+          <img src={largebackgroundImg} />
+        </div>
+      </Carousel>
       <Header>POPULAR ITEMS</Header>
       <PopularItemsWrapper>
         <ItemCardWrapper>
