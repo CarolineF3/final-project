@@ -3,9 +3,9 @@ import styled from "styled-components";
 import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
 import { Carousel } from "react-responsive-carousel";
 
-import largebackgroundImg from "../assets/desktop.jpg";
-import mediumbackgroundImg from "../assets/tablet.jpg";
-import smallbackgroundImg from "../assets/mobile.jpg";
+import backgroundImg1 from "../assets/backgroundimg1.jpg";
+import backgroundImg2 from "../assets/backgroundimg2.jpg";
+import backgroundImg3 from "../assets/backgroundimg3.jpg";
 
 import { Link } from "react-router-dom";
 
@@ -28,15 +28,15 @@ const Landing = () => {
   return (
     <>
       <Carousel>
-        <div>
-          <img src={largebackgroundImg} />
-        </div>
-        <div>
-          <img src={largebackgroundImg} />
-        </div>
-        <div>
-          <img src={largebackgroundImg} />
-        </div>
+        <Image>
+          <img src={backgroundImg1} />
+        </Image>
+        <Image>
+          <img src={backgroundImg2} />
+        </Image>
+        <Image>
+          <img src={backgroundImg3} />
+        </Image>
       </Carousel>
       <Header>POPULAR ITEMS</Header>
       <PopularItemsWrapper>
@@ -55,7 +55,7 @@ const Landing = () => {
 
 export default Landing;
 
-const Img = styled.img`
+const Image = styled.div`
   width: 100%;
   height: auto;
   object-fit: cover;
