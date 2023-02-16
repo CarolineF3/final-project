@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
-import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-import { Carousel } from "react-responsive-carousel";
+import { Rerousel } from "rerousel";
 
 import backgroundImg1 from "../assets/backgroundimg1.jpg";
 import backgroundImg2 from "../assets/backgroundimg2.jpg";
@@ -13,6 +12,8 @@ import ItemCard from "../components/ItemCard";
 
 const Landing = () => {
   const [itemList, setItemList] = useState([]);
+  const backgroundImages = [backgroundImg1, backgroundImg2, backgroundImg3];
+  const customerLogo = useRef(null);
 
   useEffect(() => {
     fetchItems();
@@ -27,17 +28,11 @@ const Landing = () => {
 
   return (
     <>
-      <Carousel>
-        <Image>
-          <img src={backgroundImg1} />
-        </Image>
-        <Image>
-          <img src={backgroundImg2} />
-        </Image>
-        <Image>
-          <img src={backgroundImg3} />
-        </Image>
-      </Carousel>
+      <Rerousel itemRef={customerLogo} interval={6000}>
+        {backgroundImages.map((c) => {
+          return <Image ref={customerLogo} src={c}></Image>;
+        })}
+      </Rerousel>
       <Header>POPULAR ITEMS</Header>
       <PopularItemsWrapper>
         <ItemCardWrapper>
@@ -55,9 +50,9 @@ const Landing = () => {
 
 export default Landing;
 
-const Image = styled.div`
+const Image = styled.img`
+  height: 31.25em;
   width: 100%;
-  height: auto;
   object-fit: cover;
 `;
 
